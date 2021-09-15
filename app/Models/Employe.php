@@ -22,4 +22,8 @@ class Employe extends Model
              'photo', 
              'email', 
     ];
+
+    public function allEmployes() {
+        return Employe::all();
+    }
 }

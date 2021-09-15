@@ -23,19 +23,19 @@ Route::get('/', function () {
     $role = Auth::user()->role; 
         switch ($role) {
           case 'admin':
-            return view('admin.dashboard') ;
+            return view('admin.index') ;
             break;
           case 'comptable':
-            return view('comptable.dashboard');
+            return redirect('/comptable_dashboard');
             break; 
             case 'employe':
-                return view('employe.dashboard');
+                return view('employe.index');
                 break; 
             case 'directeur':
-                return view('directeur.dashboard');
+                return view('directeur.index');
                 break; 
             case 'informaticien':
-                return view('informaticien.dashboard');
+                return view('informaticien.index');
                 break; 
           // default:
             // return 'dashboard'; 
@@ -46,7 +46,7 @@ Route::get('/', function () {
 
 Route::get('/admin_dashboard', 'App\Http\Controllers\Admin\DashboardController@index')->middleware('role:admin');;
 Route::get('/employe_dashboard', 'App\Http\Controllers\Employe\DashboardController@index')->middleware('role:employe');;
-Route::get('/comptable_dashboard', 'App\Http\Controllers\Comptable\DashboardController@index')->middleware('role:comptable');;
+Route::get('/comptable_dashboard', 'App\Http\Controllers\Comptable\DashboardController@index')->middleware('role:comptable')->name('comptable_dashboard');;
 Route::get('/informaticien', 'App\Http\Controllers\Informaticien\DashboardController@index')->middleware('role:informaticien');;
 Route::get('/directeur_dashboard', 'App\Http\Controllers\Directeur\DashboardController@index')->middleware('role:directeur');;
 

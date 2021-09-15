@@ -12,7 +12,10 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
-        "yajra/laravel-datatables-oracle": "~9.0"
+        "yajra/laravel-datatables-buttons": "^4.13",
+        "yajra/laravel-datatables-oracle": "~9.0",
+        "maatwebsite/excel" : "^3.0",
+        "phpoffice/phpspreadsheet" : "^1.16.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

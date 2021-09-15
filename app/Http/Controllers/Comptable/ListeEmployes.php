@@ -12,11 +12,11 @@ class ListeEmployes extends Controller
         $this->middleware('auth');
       }
       public function index() {
-        // $user = DB::table('users')->where('role', 'employe')->first();
+        $employes = DB::table('users')->where('role', 'employe')->get();
         
-        foreach (Employe::all() as $employe) {
-          echo $employe->name;
-      }
+      //   foreach (Employe::all() as $employe) {
+      //     echo $employe->name;
+      // }
         
         return view('comptable.liste_employes');
       }
