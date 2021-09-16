@@ -36,20 +36,20 @@ class AuthenticatedSessionController extends Controller
         $role = Auth::user()->role; 
         switch ($role) {
             case 'admin':
-                        return '/admin_dashboard';
-                        break;
-                      case 'comptable':
-                        return '/comptable_dashboard';
-                        break; 
-                        case 'employe':
-                            return '/employe_dashboard';
-                            break; 
-                        case 'directeur':
-                            return '/directeur_dashboard';
-                            break; 
-                        case 'informaticien':
-                            return '/informaticien_dashboard';
-                            break; 
+                return redirect('admin_dashboard');
+                break;
+              case 'comptable':
+                return redirect('comptable_dashboard');
+                break; 
+                case 'employe':
+                  return redirect('employe_dashboard');
+                    break; 
+                case 'directeur':
+                  return redirect('directeur_dashboard');
+                    break; 
+                case 'informaticien':
+                  return redirect('informaticien_dashboard');
+                    break; 
                 //       default:
           // default:
           //   return '/dashboard'; 

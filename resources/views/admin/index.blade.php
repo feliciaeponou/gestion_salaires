@@ -6,6 +6,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card ">
+                   
                         <div class="card-header ">
                             <h4 class="card-title">{{ __('Admin Statistics') }}</h4>
                             <p class="card-category">{{ __('Last Campaign Performance') }}</p>

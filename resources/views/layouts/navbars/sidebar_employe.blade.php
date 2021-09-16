@@ -11,10 +11,10 @@ Tip 2: you can also add an image using data-image tag
             </a>
         </div>
         <ul class="nav">
-            <li class="nav-item @if($activePage == 'dashboard') active @endif">
-                <a class="nav-link" href="{{route('dashboard')}}">
+            <li class="nav-item @if($activePage == 'employe_dashboard') active @endif">
+                <a class="nav-link" href="{{route('employe_dashboard')}}">
                     <i class="nc-icon nc-chart-pie-35"></i>
-                    <p>{{ __("Dashboard") }}</p>
+                    <p>{{ __("Mes heures de travail") }}</p>
                 </a>
             </li>
            

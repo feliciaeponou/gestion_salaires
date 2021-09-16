@@ -13,16 +13,34 @@ Tip 2: you can also add an image using data-image tag
         <ul class="nav">
             <li class="nav-item @if($activePage == 'liste_employes') active @endif">
                 <a class="nav-link" href="/">
-                    <i class="nc-icon nc-chart-pie-35"></i>
+                    <i class="nc-icon nc-single-02"></i>
                     <p>{{ __("Liste des employés") }}</p>
                 </a>
             </li>
-            <li class="nav-item @if($activePage == 'user') active @endif">
+            <li class="nav-item @if($activePage == 'bulletins') active @endif">
+                <a class="nav-link" href="/">
+                    <i class="nc-icon nc-paper-2"></i>
+                    <p>{{ __("Bulletins de paie") }}</p>
+                </a>
+            </li>
+            <li class="nav-item @if($activePage == 'volumes_horaires') active @endif">
+                <a class="nav-link" href="/">
+                    <i class="nc-icon nc-time-alarm"></i>
+                    <p>{{ __("Volumes horaires") }}</p>
+                </a>
+            </li>
+            <li class="nav-item @if($activePage == 'paiements') active @endif">
+                <a class="nav-link" href="/">
+                    <i class="nc-icon nc-money-coins"></i>
+                    <p>{{ __("Paiements") }}</p>
+                </a>
+            </li>
+            <!-- <li class="nav-item @if($activePage == 'user') active @endif">
                             <a class="nav-link" href="{{route('profile.edit')}}">
                                 <i class="nc-icon nc-single-02"></i>
                                 <p>{{ __("Mon profil") }}</p>
                             </a>
-                        </li>
+                        </li> -->
            
             <!-- <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#laravelExamples" @if($activeButton =='laravel') aria-expanded="true" @endif>

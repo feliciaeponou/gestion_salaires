@@ -18,43 +18,6 @@ class RedirectIfAuthenticated
      * @return mixed
      */
 
-    // public function handle(Request $request, Closure $next, ...$guards)
-    // {
-    //     $guards = empty($guards) ? [null] : $guards;
-
-    //     foreach ($guards as $guard) {
-    //         if (Auth::guard($guard)->check()) {
-    //             // return redirect(RouteServiceProvider::HOME);
-
-    //             $role = Auth::user()->role; 
-    //     switch ($role) {
-    //       case 'admin':
-    //         return redirect('/admin_dashboard') ;
-    //         break;
-    //       case 'comptable':
-    //         return redirect('/comptable_dashboard');
-    //         break; 
-    //         case 'employe':
-    //             return redirect('/employe_dashboard');
-    //             break; 
-    //         case 'directeur':
-    //             return redirect('/directeur_dashboard');
-    //             break; 
-    //         case 'informaticien':
-    //             return redirect('/informaticien_dashboard');
-    //             break; 
-    //       // default:
-    //       //   return '/dashboard'; 
-    //       break;
-    //     }
-
-
-
-    //         }
-    //     }
-
-    //     return $next($request);
-    // }
 
     public function handle($request, Closure $next, $guard = null) {
         if (Auth::guard($guard)->check()) {
@@ -62,19 +25,19 @@ class RedirectIfAuthenticated
       
           switch ($role) {
             case 'admin':
-                return redirect('/admin_dashboard') ;
+                return redirect('admin_dashboard') ;
               break;
             case 'comptable':
-                return redirect('/comptable_dashboard');
+                return redirect('comptable_dashboard');
               break; 
               case 'employe':
-                return redirect('/employe_dashboard');
+                return redirect('employe_dashboard');
                   break; 
               case 'directeur':
-                return redirect('/directeur_dashboard');
+                return redirect('directeur_dashboard');
                   break; 
               case 'informaticien':
-                return redirect('/informaticien_dashboard');
+                return redirect('informaticien_dashboard');
                   break; 
             default:
               return '/home'; 

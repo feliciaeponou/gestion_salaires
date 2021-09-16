@@ -27,7 +27,7 @@
                                         <td>{{ $employe->matricule }}</td>
                                         <td>{{ $employe->nom }}</td>
                                         <td>{{ $employe->prenoms }}</td>
-                                        <td>{{ $employe->salaire_par_heure }}</td>
+                                        <td>{{ $employe->c }}</td>
                                         <td>{{ $employe->volume_horaire }}</td>
                                     </tr>
                                     @endforeach

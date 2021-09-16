@@ -23,19 +23,19 @@ Route::get('/', function () {
     $role = Auth::user()->role; 
         switch ($role) {
           case 'admin':
-            return view('admin.index') ;
+            return redirect('admin_dashboard');
             break;
           case 'comptable':
-            return redirect('/comptable_dashboard');
+            return redirect('comptable_dashboard');
             break; 
             case 'employe':
-                return view('employe.index');
+              return redirect('employe_dashboard');
                 break; 
             case 'directeur':
-                return view('directeur.index');
+              return redirect('directeur_dashboard');
                 break; 
             case 'informaticien':
-                return view('informaticien.index');
+              return redirect('informaticien_dashboard');
                 break; 
           // default:
             // return 'dashboard'; 
@@ -44,15 +44,13 @@ Route::get('/', function () {
         }
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/admin_dashboard', 'App\Http\Controllers\Admin\DashboardController@index')->middleware('role:admin');;
-Route::get('/employe_dashboard', 'App\Http\Controllers\Employe\DashboardController@index')->middleware('role:employe');;
-Route::get('/comptable_dashboard', 'App\Http\Controllers\Comptable\DashboardController@index')->middleware('role:comptable')->name('comptable_dashboard');;
-Route::get('/informaticien', 'App\Http\Controllers\Informaticien\DashboardController@index')->middleware('role:informaticien');;
-Route::get('/directeur_dashboard', 'App\Http\Controllers\Directeur\DashboardController@index')->middleware('role:directeur');;
+Route::get('admin_dashboard', 'App\Http\Controllers\AdminController@index')->middleware('role:admin')->name('admin_dashboard');;
+Route::get('employe_dashboard', 'App\Http\Controllers\EmployeController@index')->middleware('role:employe')->name('employe_dashboard');;
+Route::get('comptable_dashboard', 'App\Http\Controllers\ComptableController@index')->middleware('role:comptable')->name('comptable_dashboard');;
+Route::get('informaticien_dashboard', 'App\Http\Controllers\InformaticienController@index')->middleware('role:informaticien')->name('informaticien_dashboard');;
+Route::get('directeur_dashboard', 'App\Http\Controllers\DirecteurController@index')->middleware('role:directeur')->name('directeur_dashboard');;
 
 require __DIR__.'/auth.php';
-
-
 
 Auth::routes();
 
@@ -72,4 +70,3 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
-Route::get('/liste_employes', 'App\Http\Controllers\Comptable\ListeEmployes@index')->middleware('role:comptable')->name('liste_employes');;;

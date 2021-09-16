@@ -53,14 +53,15 @@
                                     <div class="container text-center" >
                                         <button type="submit" class="btn btn-warning btn-wd">{{ __('Connexion') }}</button>
                                     </div>
-                                    <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between text-center">
                                         <a class="btn btn-link"  style="color:#23CCEF" href="{{ route('password.request') }}">
                                         {{ __('Mot de passe oublié ?') }}
-                                        </a>
-                                        <a class="btn btn-link" style="color:#23CCEF" href="{{ route('register') }}">
+                                        </a><br><br><br>
+                                        <!-- <a class="btn btn-link" style="color:#23CCEF" href="{{ route('register') }}">
                                             {{ __('Créer un compte') }}
-                                        </a>
+                                        </a> -->
                                     </div>
+                                    
                                     
                                 </div>
                             </div>

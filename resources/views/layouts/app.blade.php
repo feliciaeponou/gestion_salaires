@@ -26,30 +26,53 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
         <!-- CSS Files -->
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+
         <link href="{{ asset('light-bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('light-bootstrap/css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="{{ asset('light-bootstrap/css/demo.css') }}" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+     <!--   Core JS Files   -->
+     <script src="{{ asset('light-bootstrap/js/core/popper.min.js') }}" type="text/javascript"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    
     </head>
 
     <body>
-        <div class="wrapper @if (!auth()->check() || request()->route()->getName() == "") wrapper-full-page @endif">
+        <div class="wrapper @if (!auth()->check() || request()->route()->getName() == '') wrapper-full-page @endif">
 
             @if (auth()->check() && request()->route()->getName() != "")
+
             @if (auth()->user()->role == 'admin')
                 @include('layouts.navbars.sidebar')
+
             @elseif (auth()->user()->role == 'employe')
                 @include('layouts.navbars.sidebar_employe')
-                @elseif (auth()->user()->role == 'directeur')
+
+            @elseif (auth()->user()->role == 'directeur')
                 @include('layouts.navbars.sidebar_directeur')
-                @elseif (auth()->user()->role == 'comptable')
+
+            @elseif (auth()->user()->role == 'comptable')
                 @include('layouts.navbars.sidebar_comptable')
-                @elseif (auth()->user()->role == 'informaticien')
+
+            @elseif (auth()->user()->role == 'informaticien')
                 @include('layouts.navbars.sidebar_informaticien')
-                @endif
+
+            @endif
+
                 @include('pages/sidebarstyle')
+
             @endif
 
             <div class="@if (auth()->check() && request()->route()->getName() != "") main-panel @endif">
@@ -63,12 +86,8 @@
 
         
     </body>
-        <!--   Core JS Files   -->
-    <script src="{{ asset('light-bootstrap/js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('light-bootstrap/js/core/popper.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('light-bootstrap/js/core/bootstrap.min.js') }}" type="text/javascript"></script>
-
-    <script src="{{ mix('js/app.js') }}"></script>
+       
+    <!-- <script src="{{ mix('js/app.js') }}"></script> -->
     <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
     @stack('scripts')
 
@@ -90,6 +109,7 @@
     @stack('js')
     <script>
       $(document).ready(function () {
+
         
         $('#facebook').sharrre({
           share: {
