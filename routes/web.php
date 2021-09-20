@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Request;
+use App\Models\Employe;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,21 +45,48 @@ Route::get('/', function () {
         }
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('admin_dashboard', 'App\Http\Controllers\AdminController@index')->middleware('role:admin')->name('admin_dashboard');;
-Route::get('employe_dashboard', 'App\Http\Controllers\EmployeController@index')->middleware('role:employe')->name('employe_dashboard');;
+
+
+// ROUTES COMPTABLE 
 Route::get('comptable_dashboard', 'App\Http\Controllers\ComptableController@index')->middleware('role:comptable')->name('comptable_dashboard');;
+Route::any('/searchEmployeComptable',[App\Http\Controllers\ComptableController::class, 'searchEmployeComptable'])->middleware('role:comptable')->name('searchEmployeComptable');
+Route::get('/detailsEmployeComptable/{matricule}',[App\Http\Controllers\ComptableController::class, 'detailsEmployeComptable'])->middleware('role:comptable')->name('detailsEmployeComptable');
+
+
+// ROUTES INFORMATICIEN 
 Route::get('informaticien_dashboard', 'App\Http\Controllers\InformaticienController@index')->middleware('role:informaticien')->name('informaticien_dashboard');;
+Route::any('/searchEmployeInformaticien',[App\Http\Controllers\InformaticienController::class, 'searchEmployeInformaticien'])->middleware('role:informaticien')->name('searchEmployeInformaticien');
+Route::get('nouveauPointage/{matricule}', 'App\Http\Controllers\InformaticienController@nouveauPointage')->middleware('role:informaticien')->name('nouveauPointage');;
+Route::any('enregistrerPointage', 'App\Http\Controllers\InformaticienController@enregistrerPointage')->middleware('role:informaticien')->name('enregistrerPointage');;
+
+
+
+// ROUTES DIRECTEUR 
 Route::get('directeur_dashboard', 'App\Http\Controllers\DirecteurController@index')->middleware('role:directeur')->name('directeur_dashboard');;
+
+
+
+
+// ROUTES EMPLOYE 
+
+Route::get('employe_dashboard', 'App\Http\Controllers\EmployeController@index')->middleware('role:employe')->name('employe_dashboard');;
+
+
+
+// ROUTES ADMIN 
+
+Route::get('admin_dashboard', 'App\Http\Controllers\AdminController@index')->middleware('role:admin')->name('admin_dashboard');;
+
+
+
+
+
+// ROUTES AUTH
+
 
 require __DIR__.'/auth.php';
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('dashboard');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
@@ -70,3 +98,4 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('{page}', ['as' => 'page.index', 'uses' => 'App\Http\Controllers\PageController@index']);
 });
+

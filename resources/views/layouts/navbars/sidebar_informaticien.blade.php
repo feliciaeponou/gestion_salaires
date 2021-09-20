@@ -11,24 +11,24 @@ Tip 2: you can also add an image using data-image tag
             </a>
         </div>
         <ul class="nav">
-            <li class="nav-item @if($activePage == 'pointage') active @endif">
+            <!-- <li class="nav-item @if($activePage == 'pointage') active @endif">
                 <a class="nav-link" href="/">
                     <i class="nc-icon nc-single-02"></i>
-                    <p>{{ __("Pointage") }}</p>
+                    <p>{{ __("Nouvelle séance") }}</p>
                 </a>
-            </li>
-            <li class="nav-item @if($activePage == 'employes') active @endif">
+            </li> -->
+            <li class="nav-item @if($activePage == 'listeEmployes') active @endif">
                 <a class="nav-link" href="/">
-                    <i class="nc-icon nc-paper-2"></i>
+                    <i class="nc-icon nc-single-02"></i>
                     <p>{{ __("Employés") }}</p>
                 </a>
             </li>
-            <li class="nav-item @if($activePage == 'services') active @endif">
+            <!-- <li class="nav-item @if($activePage == 'services') active @endif">
                 <a class="nav-link" href="/">
                     <i class="nc-icon nc-time-alarm"></i>
                     <p>{{ __("Services") }}</p>
                 </a>
-            </li>
+            </li> -->
             <!-- <li class="nav-item @if($activePage == 'paiements') active @endif">
                 <a class="nav-link" href="/">
                     <i class="nc-icon nc-money-coins"></i>

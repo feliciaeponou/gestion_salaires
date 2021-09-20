@@ -14,7 +14,7 @@
                         <span class="d-lg-none">{{ __('Dashboard') }}</span>
                     </a>
                 </li> -->
-                <li class="dropdown nav-item">
+                <!-- <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <i class="fa fa-bell "></i>
                         <span class="notification">5</span>
@@ -27,7 +27,7 @@
                         <a class="dropdown-item" href="#">{{ __('Notification 4') }}</a>
                         <a class="dropdown-item" href="#">{{ __('Autre notification') }}</a>
                     </ul>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nc-icon nc-zoom-split"></i>
@@ -36,11 +36,11 @@
                 </li> -->
             </ul>
             <ul class="navbar-nav   d-flex align-items-center">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href=" {{route('profile.edit') }} ">
                         <span class="no-icon">{{ __('Mon profil') }}</span>
                     </a>
-                </li>
+                </li> -->
                 <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="no-icon">{{ __('Dropdown') }}</span>

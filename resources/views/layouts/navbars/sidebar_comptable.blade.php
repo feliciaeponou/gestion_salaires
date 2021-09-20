@@ -20,19 +20,19 @@ Tip 2: you can also add an image using data-image tag
             <li class="nav-item @if($activePage == 'bulletins') active @endif">
                 <a class="nav-link" href="/">
                     <i class="nc-icon nc-paper-2"></i>
-                    <p>{{ __("Bulletins de paie") }}</p>
+                    <p>{{ __("Demandes de paiement") }}</p>
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'volumes_horaires') active @endif">
                 <a class="nav-link" href="/">
-                    <i class="nc-icon nc-time-alarm"></i>
-                    <p>{{ __("Volumes horaires") }}</p>
+                    <i class="nc-icon nc-check-2"></i>
+                    <p>{{ __("Paiements validés") }}</p>
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'paiements') active @endif">
                 <a class="nav-link" href="/">
-                    <i class="nc-icon nc-money-coins"></i>
-                    <p>{{ __("Paiements") }}</p>
+                    <i class="nc-icon nc-chart-bar-32"></i>
+                    <p>{{ __("Statistiques") }}</p>
                 </a>
             </li>
             <!-- <li class="nav-item @if($activePage == 'user') active @endif">

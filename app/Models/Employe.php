@@ -10,8 +10,7 @@ class Employe extends Model
     use HasFactory;
 
     protected $fillable = [
-         'nom', 
-             'prenoms', 
+         'nom_prenoms',
              'date_naissance', 
              'genre', 
              'service', 
@@ -23,7 +22,10 @@ class Employe extends Model
              'email', 
     ];
 
-    public function allEmployes() {
-        return Employe::all();
+
+    public function pointages()
+    {
+        return $this->hasMany(Pointage::class);
     }
+
 }

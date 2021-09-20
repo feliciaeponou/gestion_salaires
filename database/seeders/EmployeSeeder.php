@@ -15,8 +15,7 @@ class EmployeSeeder extends Seeder
     protected $employes = [
         [
             'matricule' => '0123456789',
-            'nom' => 'Oulai',
-            'prenoms' => 'Bernard',
+            'nom_prenoms' => 'Oulai Bernard',
             'date_naissance' => '27/03/1980',
             'genre' => 'H',
             'service' => 'Recrutement',
@@ -29,8 +28,7 @@ class EmployeSeeder extends Seeder
         ],
         [
             'matricule' => '1011121314',
-            'nom' => 'Koffi',
-            'prenoms' => 'Amenan',
+            'nom_prenoms' => 'Koffi Amenan',
             'date_naissance' => '16/06/1992',
             'genre' => 'F',
             'service' => 'Marketing',
@@ -43,8 +41,7 @@ class EmployeSeeder extends Seeder
         ],
         [
             'matricule' => '1516171819',
-            'nom' => 'Djirabou',
-            'prenoms' => 'Leonard',
+            'nom_prenoms' => 'Djirabou Leonard',
             'date_naissance' => '16/02/1995',
             'genre' => 'H',
             'service' => 'Logistique',

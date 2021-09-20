@@ -30,14 +30,14 @@
             </ul>
             <ul class="navbar-nav   d-flex align-items-center">
 
-            <form action="/search" method="POST" role="search">
+            <form action="/searchEmployeComptable" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="d-flex form-control" name="q" style="width: 300px; height : 49px;  margin-top : 15px"
                         placeholder="Rechercher des employés"> <span class="input-group-btn">
-                        <a type="submit" class="btn btn-default">
+                        <button type="submit" class="btn btn-default">
                             <span class="nc-icon nc-zoom-split"></i></span>
-</a>
+</button>
                     </span>
                 </div>
             </form>
@@ -69,14 +69,66 @@
 
                             <!-- <p class="card-category">Here is a subtitle for this table</p> -->
                         </div>
-                        <div class="card-body table-full-width table-responsive">
-                            <table class="table table-hover table-striped">
+                        <div class="card-body  table-responsive">
+                        @if(isset($details))
+                            <p> Résultats de recherche pour <b> {{ $query }} </b> </p>
+                            
+                        <table class="table table-hover table-striped">
+                                <thead>
+                                    <th>Matricule</th>
+                                    <th>Nom et Prénom(s)</th>
+                                    <th>Salaire / H</th>
+                                    <th>Volume horaire</th>
+                                </thead>
+                            <tbody>
+                                @foreach($details as $employe)
+                                <tr>
+                                        <td>{{ $employe->matricule }}</td>
+                                        <td>{{ $employe->nom_prenoms }}</td>
+                                        <td>{{ $employe->salaire_par_heure }}</td>
+                                        <td>{{ $employe->volume_horaire }}</td>
+                                        <td><a href="{{ route('detailsEmployeComptable', $employe->matricule) }}" class="btn btn-default">
+                            <span class="nc-icon nc-stre-right"></i></span></a></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table> 
+                        
+                        @elseif  (isset($message))
+
+                        <table class="table table-hover table-striped">
                                 <thead>
                                     <th>Matricule</th>
                                     <th>Nom</th>
                                     <th>Prénom(s)</th>
-                                    <th>Salaire / H</th>
-                                    <th>Volume horaire</th>
+                                    <th>Service</th>
+                                    <th>Catégorie</th>
+                                </thead>
+                                
+                                <tbody>
+        
+                                    <!-- <tr> -->
+                                        <p>Aucune correspondance trouvée</p>
+                                        
+                                    <!-- </tr> -->
+
+                                    
+</tbody>
+</table>
+
+
+
+                        @else
+
+                        
+
+
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <th>Matricule</th>
+                                    <th>Nom et Prénom(s)</th>
+                                    <th>Service</th>
+                                    <th>Catégorie</th>
                                 </thead>
                                 
                                 <tbody>
@@ -84,14 +136,19 @@
         
                                     <tr>
                                         <td>{{ $employe->matricule }}</td>
-                                        <td>{{ $employe->nom }}</td>
-                                        <td>{{ $employe->prenoms }}</td>
-                                        <td>{{ $employe->salaire_par_heure }}</td>
-                                        <td>{{ $employe->volume_horaire }}</td>
+                                        <td>{{ $employe->nom_prenoms }}</td>
+                                        <td>{{ $employe->service }}</td>
+                                        <td>{{ $employe->categorie }}</td>
+                                        <td><a href="{{ route('detailsEmployeComptable', $employe->matricule) }}" class="btn btn-default">
+                            <span class="nc-icon nc-stre-right"></i></span></a></td>
                                     </tr>
                                     @endforeach
+
+                                    
 </tbody>
 </table>
+@endif
+
 </div>
                                    
 @endsection
