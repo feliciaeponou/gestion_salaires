@@ -38,26 +38,147 @@
         <link href="{{ asset('light-bootstrap/css/demo.css') }}" rel="stylesheet" />
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" integrity="sha512-mSYUmp1HYZDFaVKK//63EcZq4iFWFjxSL+Z3T/aCt4IO9Cejm03q3NKKYN6pFQzY0SBOr8h+eCIAZHPXcpZaNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 
 
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-
-
-
-     <!--   Core JS Files   -->
      <script src="{{ asset('light-bootstrap/js/core/popper.min.js') }}" type="text/javascript"></script>
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+<script src="https://npmcdn.com/flatpickr/dist/l10n/fr.js"></script>
+
+    <script type="text/javascript">
+    $( function() {
+
+   
+    $("#datepicker").flatpickr(
+      {
+    dateFormat: "d/m/Y",
+    minDate: "today",
+    "locale": {
+        "firstDayOfWeek": 1, // start week on Monday
+        "locale": "fr" 
+    }
+}
+    );
+    $("#daterangepicker").flatpickr(
+      {
+    dateFormat: "d/m/Y",
+    maxDate: "today",
+    mode: "range",
+    "locale": {
+        "firstDayOfWeek": 1, // start week on Monday
+        "locale": "fr" 
+    }
+}
+    );
+
+
+
+    $("#timepicker").flatpickr(
+      {
+    enableTime: true,
+    dateFormat: "H:i",
+    time_24hr: true,
+    minDate: "today",
+    noCalendar: true,
+   
+}
+    );
+
+    $("#timepicker1").flatpickr(
+      {
+    enableTime: true,
+    dateFormat: "H:i",
+    time_24hr: true,
+    minDate: "today",
+    noCalendar: true,
+   
+}
+    );
+
+    $("#timepicker2").flatpickr(
+      {
+    enableTime: true,
+    dateFormat: "H:i",
+    time_24hr: true,
+    minDate: "today",
+    noCalendar: true,
+   
+}
+    );
+
+    $("#timepicker3").flatpickr(
+      {
+    enableTime: true,
+    dateFormat: "H:i",
+    time_24hr: true,
+    minDate: "today",
+    noCalendar: true,
+   
+}
+    );
+
+
+$(document).on('change','#daterangepicker', function () {
+
+  var periode = document.getElementById('daterangepicker').value; 
+  var matricule = document.getElementById('matricule').value; 
+  
+  console.log('Periode ' + periode);
+
+  var periode_splitted = periode.split(' ');
+
+  var date_debut = periode_splitted[0];
+  var date_fin = periode_splitted[2];
+
+
+  console.log('Date debut ' + periode_splitted[0]);
+  console.log('Date fin ' + periode_splitted[2]);
+
+  var date_debut1 = date_debut.split('/');
+  var date_fin1 = date_fin.split('/');
+
+  // TODO Requete vers la bdd pour recuperer toutes les seances effectuees entre ces deux dates 
+  $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+  $.ajax({
+           type:'POST',
+           url:"{{ route('ajaxRequest.post') }}",
+           data:{
+             date_debut:date_debut,
+             date_fin:date_fin,
+             matricule:matricule
+             },
+          //  success:function(data){
+          //     alert(data.success);
+          //  }
+        });
+
+
+
+  
+});
+
+
+
+
+  } );
+</script>      
 
     
     </head>
@@ -81,6 +202,9 @@
 
             @elseif (auth()->user()->role == 'informaticien')
                 @include('layouts.navbars.sidebar_informaticien')
+
+                @elseif (auth()->user()->role == 'secretaire_comptable')
+                @include('layouts.navbars.sidebar_secretaire_comptable')
 
             @endif
 

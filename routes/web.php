@@ -38,6 +38,9 @@ Route::get('/', function () {
             case 'informaticien':
               return redirect('informaticien_dashboard');
                 break; 
+            case 'secretaire_comptable':
+              return redirect('secretaire_comptable_dashboard');
+                break; 
           // default:
             // return 'dashboard'; 
             // return view('informaticien.dashboard');
@@ -78,6 +81,13 @@ Route::get('employe_dashboard', 'App\Http\Controllers\EmployeController@index')-
 Route::get('admin_dashboard', 'App\Http\Controllers\AdminController@index')->middleware('role:admin')->name('admin_dashboard');;
 
 
+// ROUTES SECRETAIRE COMPTABLE 
+
+Route::get('secretaire_comptable_dashboard', 'App\Http\Controllers\SecretaireComptableController@index')->middleware('role:secretaire_comptable')->name('secretaire_comptable_dashboard');;
+Route::get('nouvelleDemandePaiement/{matricule}', 'App\Http\Controllers\SecretaireComptableController@nouvelleDemandePaiement')->middleware('role:secretaire_comptable')->name('nouvelleDemandePaiement');;
+Route::any('enregistrerDemandePaiement', 'App\Http\Controllers\SecretaireComptableController@enregistrerDemandePaiement')->middleware('role:secretaire_comptable')->name('enregistrerDemandePaiement');;
+
+Route::post('ajaxRequest', [SecretaireComptableController::class, 'ajaxRequestPost'])->name('ajaxRequest.post');
 
 
 

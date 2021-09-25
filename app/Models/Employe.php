@@ -28,4 +28,9 @@ class Employe extends Model
         return $this->hasMany(Pointage::class);
     }
 
+    public function demande_paiements()
+    {
+        return $this->hasMany(DemandePaiement::class);
+    }
+
 }

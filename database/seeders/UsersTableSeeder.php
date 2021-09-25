@@ -67,6 +67,15 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ],
+        [
+            'name' => 'Secretaire Comptable',
+            'email' => 'secretaire_comptable@gmail.com',
+            'email_verified_at' => now(),
+            'role' => 'secretaire_comptable',
+            'password' => Hash::make('secretaire_comptable'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
        
     ];
 

@@ -41,50 +41,54 @@
                                             {{ __('Matricule') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control " name="matricule" value="{{$employe -> matricule}}" readonly> 
+                                        <input type="text" class="form-control " name="matricule" id="matricule" value="{{$employe -> matricule}}" readonly> 
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name" >
-                                            {{ __('Date de la séance') }}
+                                            {{ __('Période') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control" id="datepicker" name="dateSeance" > 
-                                        
+                                        <input type="text" class="form-control" id="daterangepicker" name="periode" > 
+                                        <!-- TODO Afficher le nombre de seances, le volume horaire et le cout total apres le choix de la periode -->
                                     </div>
+
+                                    @if(isset($details))
+                                    @foreach($details as $pointages)
+
 
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
-                                            {{ __('Debut de la Seance') }}
+                                            {{ __('Nombre de séances') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control " id="timepicker" name="debutSeance"> 
+                                        <input type="text" class="form-control " readonly name="nbSeances" value="{{$pointages -> nbSeances}}> 
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
-                                            {{ __('Debut de la Pause') }}
+                                            {{ __('Volume Horaire Total') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control" id="timepicker1" name="debutPause"> 
+                                        <input type="text" class="form-control" readonly name="volumeHoraireTotal"> 
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
-                                            {{ __('Fin de la Pause') }}
+                                            {{ __('Coût Total') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control" id="timepicker2" name="finPause"> 
+                                        <input type="text" class="form-control" readonly name="coutTotal"> 
                                     </div>
 
-                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                    <!-- <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
                                             {{ __('Fin de la Seance') }}
                                         </label>
-                                        <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
+                                         <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> 
                                         <input type="text" class="form-control " id="timepicker3" name="finSeance"> 
-                                    </div>
+                                    </div> -->
 
                                    <input type="hidden" name="employe_id" value="{{$employe -> id}}">
                                     

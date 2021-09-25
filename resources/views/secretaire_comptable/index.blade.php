@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'liste_employes', 'title' => 'Gestion Des Salaires | Liste des employés', 'navName' => 'Liste des employés', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'listeEmployes', 'title' => 'Gestion Des Salaires | Liste des employés', 'navName' => 'Liste des employés', 'activeButton' => 'laravel'])
 
 @section('content')
     <div class="content">
@@ -23,14 +23,14 @@
                 <!-- <li class="nav-item">
                     <a href="#" class="btn btn-default" data-toggle="dropdown"> Ajouter un employé
                          <i class="nc-icon nc-palette"></i>
-                        <span class="d-lg-none">{{ __('Nouvel employé') }}</span> 
+                        <span class="d-lg-none">{{ __('Nouvel employé') }}</span>
                     </a>
                 </li> -->
 
             </ul>
             <ul class="navbar-nav   d-flex align-items-center">
 
-            <form action="/searchEmployeComptable" method="POST" role="search">
+            <form action="/searchEmployeSecretaireComptable" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="d-flex form-control" name="q" style="width: 300px; height : 49px;  margin-top : 15px"
@@ -87,8 +87,10 @@
                                         <td>{{ $employe->nom_prenoms }}</td>
                                         <td>{{ $employe->salaire_par_heure }}</td>
                                         <td>{{ $employe->volume_horaire }}</td>
-                                        <td><a href="{{ route('detailsEmployeComptable', $employe->matricule) }}" class="btn btn-default">
-                            <span class="nc-icon nc-stre-right"></i></span></a></td>
+                                        <td>
+                        <a href="{{ route('nouvelleDemandePaiement', $employe->matricule) }}" class="btn btn-default">
+                            <span class="nc-icon nc-simple-add"></i></span></a>
+                </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -139,8 +141,8 @@
                                         <td>{{ $employe->nom_prenoms }}</td>
                                         <td>{{ $employe->service }}</td>
                                         <td>{{ $employe->categorie }}</td>
-                                        <td><a href="{{ route('detailsEmployeComptable', $employe->matricule) }}" class="btn btn-default">
-                            <span class="nc-icon nc-stre-right"></i></span></a></td>
+                                        <td> <a href="{{ route('nouvelleDemandePaiement', $employe->matricule) }}" class="btn btn-default">
+                            <span class="nc-icon nc-simple-add"></i></span></a></td>
                                     </tr>
                                     @endforeach
 

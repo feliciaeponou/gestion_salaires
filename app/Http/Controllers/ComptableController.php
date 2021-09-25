@@ -27,17 +27,11 @@ class ComptableController extends Controller
 
       public function detailsEmployeComptable($matricule)
       {
-        // $matricule = Request::get ( 'matricule' );
-        // $employes = DB::table('pointages,employes')->where('matricule', ''.$matricule.'')->get();
+        $pointages = Pointage::where('matricule',''.$matricule.'')->get();
 
-        $pointages = Employe::with('pointages')->where('matricule', ''.$matricule.'' )->get();
-
-        // if(count($employe) > 0)
 
         return view('comptable.detailsEmploye', compact('pointages'));
-        // else 
-        // return view('informaticien.detailsEmployesComptable', compact('employes'));
-
-
+        
+        
       }
 }

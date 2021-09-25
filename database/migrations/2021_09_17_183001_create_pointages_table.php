@@ -16,11 +16,13 @@ class CreatePointagesTable extends Migration
         Schema::create('pointages', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employe_id')->index();
+            $table->string('matricule');
             $table->string('debutSeance');
             $table->string('debutPause');
             $table->string('finPause');
             $table->string('finSeance');
             $table->string('dateSeance');
+            $table->string('volumeHoraire');
             $table->timestamps();
 
 

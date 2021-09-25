@@ -39,6 +39,9 @@ class RedirectIfAuthenticated
               case 'informaticien':
                 return redirect('informaticien_dashboard');
                   break; 
+                  case 'secretaire_comptable':
+                    return redirect('secretaire_comptable_dashboard');
+                      break; 
             default:
               return '/home'; 
             break;

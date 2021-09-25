@@ -6,17 +6,41 @@ Tip 2: you can also add an image using data-image tag
 -->
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text">
-                {{ __("Interface directeur") }}
+            <a href="#" class="simple-text">
+                {{ __("Interface Sécrétaire Comptable") }}
             </a>
         </div>
         <ul class="nav">
-            <!-- <li class="nav-item @if($activePage == 'dashboard') active @endif">
-                <a class="nav-link" href="{{route('dashboard')}}">
-                    <i class="nc-icon nc-chart-pie-35"></i>
-                    <p>{{ __("Dashboard") }}</p>
+            <!-- <li class="nav-item @if($activePage == 'pointage') active @endif">
+                <a class="nav-link" href="/">
+                    <i class="nc-icon nc-single-02"></i>
+                    <p>{{ __("Nouvelle séance") }}</p>
                 </a>
             </li> -->
+            <li class="nav-item @if($activePage == 'listeEmployes') active @endif">
+                <a class="nav-link" href="/">
+                    <i class="nc-icon nc-single-02"></i>
+                    <p>{{ __("Employés") }}</p>
+                </a>
+            </li>
+            <li class="nav-item @if($activePage == 'demandesPaiements') active @endif">
+                <a class="nav-link" href="/">
+                    <i class="nc-icon nc-paper-2"></i>
+                    <p>{{ __("Demandes de paiements") }}</p>
+                </a>
+            </li>
+            <!-- <li class="nav-item @if($activePage == 'paiements') active @endif">
+                <a class="nav-link" href="/">
+                    <i class="nc-icon nc-money-coins"></i>
+                    <p>{{ __("Catégories d'employés") }}</p>
+                </a>
+            </li> -->
+            <!-- <li class="nav-item @if($activePage == 'user') active @endif">
+                            <a class="nav-link" href="{{route('profile.edit')}}">
+                                <i class="nc-icon nc-single-02"></i>
+                                <p>{{ __("Mon profil") }}</p>
+                            </a>
+                        </li> -->
            
             <!-- <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#laravelExamples" @if($activeButton =='laravel') aria-expanded="true" @endif>
@@ -44,9 +68,9 @@ Tip 2: you can also add an image using data-image tag
                         </li>
                     </ul>
                 </div>
-            </li> -->
+            </li>
 
-            <!-- <li class="nav-item @if($activePage == 'table') active @endif">
+            <li class="nav-item @if($activePage == 'table') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'table')}}">
                     <i class="nc-icon nc-notes"></i>
                     <p>{{ __("Table List") }}</p>
@@ -75,13 +99,8 @@ Tip 2: you can also add an image using data-image tag
                     <i class="nc-icon nc-bell-55"></i>
                     <p>{{ __("Notifications") }}</p>
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active bg-danger" href="{{route('page.index', 'upgrade')}}">
-                    <i class="nc-icon nc-alien-33"></i>
-                    <p>{{ __("Upgrade to PRO") }}</p>
-                </a>
             </li> -->
+            
         </ul>
     </div>
 </div>

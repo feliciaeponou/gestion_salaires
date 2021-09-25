@@ -50,6 +50,9 @@ class AuthenticatedSessionController extends Controller
                 case 'informaticien':
                   return redirect('informaticien_dashboard');
                     break; 
+                    case 'secretaire_comptable':
+                      return redirect('secretaire_comptable_dashboard');
+                        break; 
                 //       default:
           // default:
           //   return '/dashboard'; 
