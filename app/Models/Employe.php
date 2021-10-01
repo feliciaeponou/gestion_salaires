@@ -10,6 +10,7 @@ class Employe extends Model
     use HasFactory;
 
     protected $fillable = [
+        'matricule',
          'nom_prenoms',
              'date_naissance', 
              'genre', 
@@ -18,8 +19,9 @@ class Employe extends Model
              'salaire_par_heure', 
              'date_debut_service', 
              'volume_horaire', 
-             'photo', 
+            //  'photo', 
              'email', 
+             'password', 
     ];
 
 

@@ -25,6 +25,7 @@ class EmployeSeeder extends Seeder
             'volume_horaire' => '0',
             'photo' => 'photophoto',
             'email' => 'oulaibernard@entreprise.com',
+            'password' => 'oulaibernard',
         ],
         [
             'matricule' => '1011121314',
@@ -38,6 +39,7 @@ class EmployeSeeder extends Seeder
             'volume_horaire' => '0',
             'photo' => 'photophoto',
             'email' => 'amenankoffi@entreprise.com',
+            'password' => 'amenankoffi',
         ],
         [
             'matricule' => '1516171819',
@@ -51,6 +53,7 @@ class EmployeSeeder extends Seeder
             'volume_horaire' => '0',
             'photo' => 'photophoto',
             'email' => 'leonarddjirabou@entreprise.com',
+            'password' => 'leonarddjirabou',
         ]
 
         ];

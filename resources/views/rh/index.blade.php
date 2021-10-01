@@ -69,6 +69,8 @@
                             <!-- <p class="card-category">Here is a subtitle for this table</p> -->
                         </div>
                         <div class="card-body  table-responsive">
+                        @include('alerts.success')
+                        
                         @if(isset($details))
                             <p> Résultats de recherche pour <b> {{ $query }} </b> </p>
                             

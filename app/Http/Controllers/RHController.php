@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Models\Employe;
-use Request;
-use App\Models\Pointage;
+// use Request;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use DB;
+use App\Models\User;
 
 class RHController extends Controller
 {
@@ -38,4 +41,51 @@ class RHController extends Controller
       {
         return view('rh.nouvelEmploye');
       }
+
+      public function enregistrerEmploye(Request $request)
+      {
+            $request->validate([
+              // 'matricule' => ['required', 'string', 'max:255'],
+                'nom_prenoms' => ['required', 'string', 'max:255'],
+                'date_naissance' => ['required', 'string', 'max:255'],
+                'genre' => ['required', 'string', 'max:255'],
+                'service' => ['required', 'string', 'max:255'],
+                'categorie' => ['required', 'string', 'max:255'],
+                'salaire_par_heure' => ['required', 'string', 'max:255'],
+                'date_debut_service' => ['required', 'string', 'max:255'],
+                'volume_horaire' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'max:255'],
+                'password' => ['required', 'string', 'max:255'],
+            ]);
+
+          
+
+          $employe = Employe::create([
+              'matricule' => mt_rand(1000000000,9999999999),
+              'nom_prenoms' => $request->nom_prenoms,
+              'date_naissance' => $request->date_naissance,
+              'genre' => $request->genre,
+              'service' => $request->service,
+              'categorie' => $request->categorie,
+              'salaire_par_heure' => $request->salaire_par_heure,
+              'date_debut_service' => $request->date_debut_service,
+              'volume_horaire' => $request->volume_horaire,
+              'email' => $request->email,
+              'password' => Hash::make($request->password) ,
+          ]);
+          
+          $user = User::create([
+            'name' => $request->nom_prenoms,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'employe',
+            
+        ]);
+
+        $employes = Employe::all();
+        return view('rh.index', compact('employes'))->withStatus(__('Nouvel employé ajouté'));
+        
+      }
+
+
 }

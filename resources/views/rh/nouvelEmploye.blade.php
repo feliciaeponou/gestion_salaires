@@ -13,12 +13,10 @@
 
                         <div class="card-body">
 
-                        <form method="post" action="{{ route('enregistrerPointage') }}" autocomplete="off"
+                        <form method="post" action="{{ route('enregistrerEmploye') }}" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
-
-                                <!-- <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6> -->
                                 
                                 @include('alerts.success')
                                 @include('alerts.error_self_update', ['key' => 'not_allow_profile'])
@@ -29,24 +27,16 @@
                                         <label class="form-control-label" for="input-name">
                                             {{ __('Nom et prénoms') }}
                                         </label>
-                                        <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
                                         <input type="text" class="form-control " name="nom_prenoms"  > 
                                     </div>
 
-                                <!-- <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-name">
-                                            {{ __('Matricule') }}
-                                        </label>
-                                         <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> 
-                                        <input type="text" class="form-control " name="matricule" readonly> 
-                                    </div> -->
+                              
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name" >
                                             {{ __('Date de naissance') }}
                                         </label>
-                                        <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control" id="datepickernais" name="dateSeance" > 
+                                        <input type="text" class="form-control" id="datepickernais" name="date_naissance" > 
                                         
                                     </div>
 
@@ -74,7 +64,6 @@
                                         <label class="form-control-label" for="input-name">
                                             {{ __('Catégorie de l\'employé') }}
                                         </label>
-                                        <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
                                         <input type="text" class="form-control " name="categorie"> 
                                     </div>
 
@@ -98,23 +87,39 @@
                                         <label class="form-control-label" for="input-name">
                                             {{ __('Salaire par heure') }}
                                         </label>
-                                        <input type="text" class="form-control" id="" name="finPause"> 
-                                        <input id="employeeSalary" name="employeeSalary" list="salaryList" type="text" class="form-control" placeholder="Salaire de l'employé (par heures)">
-                                <datalist id="salaryList">
-                                        <option value="5000">
-                                        <option value="8000">
-                                        <option value="15000">
-                                </datalist>
+                                        
+                                        <select name="salaire_par_heure" id="" class="form-control">
+                                            <option value="">--</option>
+                                            <option value="5000">5000</option>
+                                            <option value="8000">8000</option>
+                                            <option value="15000">15000</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name" >
+                                            {{ __('Volume horaire') }}
+                                        </label>
+                                        <input type="number" class="form-control" name="volume_horaire" > 
+                                        
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-name">
-                                            {{ __('Fin de la Seance') }}
+                                        <label class="form-control-label" for="input-name" >
+                                            {{ __('Email') }}
                                         </label>
-                                        <input type="text" class="form-control " id="timepicker3" name="finSeance"> 
+                                        <input type="email" class="form-control" name="email" > 
+                                        
                                     </div>
 
-                                   <input type="hidden" name="employe_id">
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name" >
+                                            {{ __('Mot de passe') }}
+                                        </label>
+                                        <input type="text" class="form-control" name="password" > 
+                                        
+                                    </div>
                                     
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-default mt-4">{{ __('Enregistrer') }}</button>

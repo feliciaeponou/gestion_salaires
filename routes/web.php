@@ -97,7 +97,7 @@ Route::post('ajaxRequest', [SecretaireComptableController::class, 'ajaxRequestPo
 
 Route::get('rh_dashboard', 'App\Http\Controllers\RHController@index')->middleware('role:rh')->name('rh_dashboard');;
 Route::get('/nouvelEmploye', 'App\Http\Controllers\RHController@nouvelEmploye')->middleware('role:rh')->name('nouvelEmploye');;
-Route::any('enregisterEmploye', 'App\Http\Controllers\RHController@enregisterEmploye')->middleware('role:rh')->name('enregisterEmploye');;
+Route::any('enregistrerEmploye', 'App\Http\Controllers\RHController@enregistrerEmploye')->middleware('role:rh')->name('enregistrerEmploye');;
 Route::any('/searchEmployerh',[App\Http\Controllers\RHController::class, 'searchEmployerh'])->middleware('role:rh')->name('searchEmployerh');
 
 

@@ -24,8 +24,9 @@ class CreateEmployesTable extends Migration
             $table->string('salaire_par_heure');
             $table->string('date_debut_service');
             $table->string('volume_horaire');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->string('email')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }
