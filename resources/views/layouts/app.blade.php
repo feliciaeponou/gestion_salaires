@@ -71,6 +71,27 @@
     }
 }
     );
+
+    $("#datepickernais").flatpickr(
+      {
+    dateFormat: "d/m/Y",
+    "locale": {
+        "firstDayOfWeek": 1, // start week on Monday
+        "locale": "fr" 
+    }
+}
+    );
+    $("#date_debut_service").flatpickr(
+      {
+    dateFormat: "d/m/Y",
+    "locale": {
+        "firstDayOfWeek": 1, // start week on Monday
+        "locale": "fr" 
+    }
+}
+    );
+
+
     $("#daterangepicker").flatpickr(
       {
     dateFormat: "d/m/Y",
@@ -205,6 +226,9 @@ $(document).on('change','#daterangepicker', function () {
 
                 @elseif (auth()->user()->role == 'secretaire_comptable')
                 @include('layouts.navbars.sidebar_secretaire_comptable')
+                
+                @elseif (auth()->user()->role == 'rh')
+                @include('layouts.navbars.sidebar_rh')
 
             @endif
 

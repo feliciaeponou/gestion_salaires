@@ -7,18 +7,25 @@ Tip 2: you can also add an image using data-image tag
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="http://www.creative-tim.com" class="simple-text">
-                {{ __("Interface employé") }}
+                {{ __("Interface RH") }}
             </a>
         </div>
         <ul class="nav">
-            <!-- <li class="nav-item @if($activePage == 'employe_dashboard') active @endif">
-                <a class="nav-link" href="{{route('employe_dashboard')}}">
-                    <i class="nc-icon nc-chart-pie-35"></i>
-                    <p>{{ __("Mes heures de travail") }}</p>
+
+        <li class="nav-item @if($activePage == 'liste_employes') active @endif">
+                <a class="nav-link" href="/">
+                    <i class="nc-icon nc-single-02"></i>
+                    <p>{{ __("Liste des employés") }}</p>
                 </a>
             </li>
+            <!-- <li class="nav-item @if($activePage == 'dashboard') active @endif">
+                <a class="nav-link" href="{{route('dashboard')}}">
+                    <i class="nc-icon nc-chart-pie-35"></i>
+                    <p>{{ __("Dashboard") }}</p>
+                </a>
+            </li> -->
            
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#laravelExamples" @if($activeButton =='laravel') aria-expanded="true" @endif>
                     <i>
                         <img src="{{ asset('light-bootstrap/img/laravel.svg') }}" style="width:25px">
@@ -44,9 +51,9 @@ Tip 2: you can also add an image using data-image tag
                         </li>
                     </ul>
                 </div>
-            </li>
+            </li> -->
 
-            <li class="nav-item @if($activePage == 'table') active @endif">
+            <!-- <li class="nav-item @if($activePage == 'table') active @endif">
                 <a class="nav-link" href="{{route('page.index', 'table')}}">
                     <i class="nc-icon nc-notes"></i>
                     <p>{{ __("Table List") }}</p>

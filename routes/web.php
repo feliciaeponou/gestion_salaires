@@ -41,6 +41,9 @@ Route::get('/', function () {
             case 'secretaire_comptable':
               return redirect('secretaire_comptable_dashboard');
                 break; 
+                case 'rh':
+                  return redirect('rh_dashboard');
+                    break; 
           // default:
             // return 'dashboard'; 
             // return view('informaticien.dashboard');
@@ -88,6 +91,15 @@ Route::get('nouvelleDemandePaiement/{matricule}', 'App\Http\Controllers\Secretai
 Route::any('enregistrerDemandePaiement', 'App\Http\Controllers\SecretaireComptableController@enregistrerDemandePaiement')->middleware('role:secretaire_comptable')->name('enregistrerDemandePaiement');;
 
 Route::post('ajaxRequest', [SecretaireComptableController::class, 'ajaxRequestPost'])->name('ajaxRequest.post');
+
+
+// ROUTES RH
+
+Route::get('rh_dashboard', 'App\Http\Controllers\RHController@index')->middleware('role:rh')->name('rh_dashboard');;
+Route::get('nouvelEmploye', 'App\Http\Controllers\RHController@nouvelEmploye')->middleware('role:rh')->name('nouvelEmploye');;
+Route::any('enregisterEmploye', 'App\Http\Controllers\RHController@enregisterEmploye')->middleware('role:rh')->name('enregisterEmploye');;
+Route::any('/searchEmployerh',[App\Http\Controllers\RHController::class, 'searchEmployerh'])->middleware('role:rh')->name('searchEmployerh');
+
 
 
 
