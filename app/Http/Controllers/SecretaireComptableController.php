@@ -110,11 +110,13 @@ class SecretaireComptableController extends Controller
       if(count($pointages) > 0) {
 
         $employes = DB::table('employes')->where('matricule', ''.$request->matricule.'')->get();
-        return view('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withDetails($pointages);
+        $periode = $request->periode ;
+
+        return view('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withDetails($pointages)->withPeriodes($periode);
 
       } else {
         $employes = DB::table('employes')->where('matricule', ''.$request->matricule.'')->get();
-        return view ('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withMessage('Aucune correspondance trouvée !')->withStatus(__('Aucune séance enregistrée durant cette période'));;
+        return view ('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withMessage('Aucune correspondance trouvée !')->withErrors(__('Aucune séance enregistrée durant cette période'));;
       }
      
      

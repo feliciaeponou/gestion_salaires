@@ -53,14 +53,16 @@
                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
                         <input type="text" class="form-control " name="matricule" id="matricule" value="{{$employe -> matricule}}" readonly> 
                     </div>
+                   
 
                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                         <label class="form-control-label" for="input-name" >
                             {{ __('Période') }}
                         </label>
                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                        <input type="text" class="form-control" readonly name="periode" value=""> 
+                        <input type="text" class="form-control" readonly name="periode" value="{{ $periodes }}"> 
                     </div>
+
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
