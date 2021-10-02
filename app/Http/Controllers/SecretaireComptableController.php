@@ -71,19 +71,53 @@ class SecretaireComptableController extends Controller
       }
 
 
-      public function ajaxRequestPost(Request $request)
+      public function verifierSeances(Request $request)
     {
 
+      
+      $periodeExploded = explode(" ", $request->periode);
+      $dateDebut = $periodeExploded[0];
+      $dateFin = $periodeExploded[2];
 
-      $pointages = Pointage::whereBetween('dateSeance',$request->date_debut,$request->date_fin)->where('matricule',$request->matricule )->get();
+      // echo "Date debut : ". $dateDebut . " Date fin : ". $dateFin . "<br>";
+      // echo $request->matricule . "<br>";
+
+      $pointages = Pointage::whereBetween('dateSeance',array(strtotime($dateDebut),strtotime($dateFin)))->where('matricule',$request->matricule )->get();
+
+// FIXME ne calcule pas bien le nombre de seances quand on selectionne des petiodes differentes
+
+      // $pointages = Pointage::where('dateSeance', '>=', strtotime($dateDebut))
+      // ->where('dateSeance', '<=', strtotime($dateFin))    
+      // ->where('matricule',$request->matricule)
+      // ->get();
 
       $nbSeances = count($pointages);
-      // $volumeHoraireTotal =
       
 
-      // if(count($pointages) > 0)
-      //       return view('secretaire_comptable.nouvelleDemandePaiement')->withDetails($pointages);
-      //   else return view ('secretaire_comptable.nouvelleDemandePaiement')->withMessage('Aucune correspondance trouvée !');
+      // echo "Nombre de seances : ". $nbSeances ."<br>";
+
+
+      // $volumeHoraireTotal = 0;
+
+      // foreach ($pointages as $pointage) {
+      //   $volumeHoraireTotal = $volumeHoraireTotal + $pointage->volumeHoraire;
+      //   echo "Volume horaire total = ". $volumeHoraireTotal . "<br>";
+      //   $salaireTotal = $request->salaire_par_heure * $volumeHoraireTotal;
+      //   echo "Salaire toytal à payer = ". $salaireTotal . "<br>";
+      // }
+      
+
+      if(count($pointages) > 0) {
+
+        $employes = DB::table('employes')->where('matricule', ''.$request->matricule.'')->get();
+        return view('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withDetails($pointages);
+
+      } else {
+        $employes = DB::table('employes')->where('matricule', ''.$request->matricule.'')->get();
+        return view ('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withMessage('Aucune correspondance trouvée !')->withStatus(__('Aucune séance enregistrée durant cette période'));;
+      }
+     
      
     }
+
 }

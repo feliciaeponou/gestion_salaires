@@ -17,6 +17,7 @@ class Pointage extends Model
             'finPause', 
             'finSeance', 
             'dateSeance', 
+            'volumeHoraire', 
 
    ];
 

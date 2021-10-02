@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Employe;
 use App\Models\Pointage;
-use Request;
+// use Request;
+use Illuminate\Http\Request;
 use DB;
 class InformaticienController extends Controller
 {
@@ -43,6 +44,18 @@ class InformaticienController extends Controller
 
       public function enregistrerPointage(Request $request)
       {
+
+        $debutSeance = strtotime($request->input('debutSeance'));
+        $debutPause = strtotime($request->input('debutPause'));
+        $finPause = strtotime($request->input('finPause'));
+        $finSeance = strtotime($request->input('finSeance'));
+
+
+        $difference = round(abs($debutPause - $debutSeance) / 3600,2);
+        $difference2 = round(abs($finSeance - $finPause) / 3600,2);
+        $volumeHoraire = $difference + $difference2;
+
+
             $request->validate([
               'employe_id' => ['required', 'string', 'max:255'],
                 'matricule' => ['required', 'string', 'max:255'],
@@ -61,7 +74,10 @@ class InformaticienController extends Controller
               'finPause' => $request->finPause,
               'finSeance' => $request->finSeance,
               'dateSeance' => $request->dateSeance,
+              'volumeHoraire' => $volumeHoraire,
           ]);
+
+          // echo "Volume horaire : ". $volumeHoraire;
 
           return back()->withStatus(__('Nouvelle séance ajoutée avec succès'));
       }

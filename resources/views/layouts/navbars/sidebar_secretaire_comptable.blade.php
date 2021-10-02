@@ -19,13 +19,13 @@ Tip 2: you can also add an image using data-image tag
             </li> -->
             <li class="nav-item @if($activePage == 'listeEmployes') active @endif">
                 <a class="nav-link" href="/">
-                    <i class="nc-icon nc-single-02"></i>
-                    <p>{{ __("Employés") }}</p>
+                    <!-- <i class="nc-icon nc-single-02"></i> -->
+                    <p>{{ __("Liste des Employés") }}</p>
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'demandesPaiements') active @endif">
                 <a class="nav-link" href="/">
-                    <i class="nc-icon nc-paper-2"></i>
+                    <!-- <i class="nc-icon nc-paper-2"></i> -->
                     <p>{{ __("Demandes de paiements") }}</p>
                 </a>
             </li>

@@ -34,7 +34,7 @@
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="d-flex form-control" name="q" style="width: 300px; height : 49px;  margin-top : 15px"
-                        placeholder="Rechercher des employés"> <span class="input-group-btn">
+                        placeholder="Rechercher un employé"> <span class="input-group-btn">
                         <button type="submit" class="btn btn-default">
                             <span class="nc-icon nc-zoom-split"></i></span>
 </button>

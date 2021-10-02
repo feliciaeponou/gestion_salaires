@@ -89,7 +89,7 @@ Route::get('admin_dashboard', 'App\Http\Controllers\AdminController@index')->mid
 Route::get('secretaire_comptable_dashboard', 'App\Http\Controllers\SecretaireComptableController@index')->middleware('role:secretaire_comptable')->name('secretaire_comptable_dashboard');;
 Route::get('nouvelleDemandePaiement/{matricule}', 'App\Http\Controllers\SecretaireComptableController@nouvelleDemandePaiement')->middleware('role:secretaire_comptable')->name('nouvelleDemandePaiement');;
 Route::any('enregistrerDemandePaiement', 'App\Http\Controllers\SecretaireComptableController@enregistrerDemandePaiement')->middleware('role:secretaire_comptable')->name('enregistrerDemandePaiement');;
-
+Route::any('verifierSeances', 'App\Http\Controllers\SecretaireComptableController@verifierSeances')->middleware('role:secretaire_comptable')->name('verifierSeances');;
 Route::post('ajaxRequest', [SecretaireComptableController::class, 'ajaxRequestPost'])->name('ajaxRequest.post');
 
 
