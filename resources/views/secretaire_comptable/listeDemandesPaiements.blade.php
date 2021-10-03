@@ -22,13 +22,14 @@
                                 
                                 <tbody>
                                 @foreach ($demandePaiements as $demandePaiement)
+                                
         
                                     <tr>
                                         <td>{{ $demandePaiement->matricule }}</td>
                                         <td>{{ $demandePaiement->periode }}</td>
                                         <td>{{ $demandePaiement->nbSeances }}</td>
                                         <td>{{ $demandePaiement->volumeHoraireTotal }}</td>
-                                        <td>{{ $demandePaiement->coutTotal }}</td>
+                                        <td>{{ $demandePaiement->coutTotal  }} FCFA</td>
                                         
                                     </tr>
                                     @endforeach

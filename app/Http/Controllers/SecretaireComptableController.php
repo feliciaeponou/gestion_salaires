@@ -25,11 +25,11 @@ class SecretaireComptableController extends Controller
         // return view('secretaire_comptable.index');
       }
 
-      public function searchEmployeSecretaireComptable() {
-        $q = Request::get ( 'q' );
-        $employe = Employe::where('nom_prenoms','LIKE','%'.$q.'%')->get();
+      public function searchEmployeSecretaireComptable(Request $request) {
+        
+        $employe = Employe::where('nom_prenoms','LIKE','%'.$request->q.'%')->get();
         if(count($employe) > 0)
-            return view('secretaire_comptable.index')->withDetails($employe)->withQuery ( $q );
+            return view('secretaire_comptable.index')->withDetails($employe)->withQuery ( $request->q );
         else return view ('secretaire_comptable.index')->withMessage('Aucune correspondance trouvée !');
       }
 

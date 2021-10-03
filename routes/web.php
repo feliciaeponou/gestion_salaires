@@ -55,13 +55,13 @@ Route::get('/', function () {
 
 // ROUTES COMPTABLE 
 Route::get('comptable_dashboard', 'App\Http\Controllers\ComptableController@index')->middleware('role:comptable')->name('comptable_dashboard');;
-Route::any('/searchEmployeComptable',[App\Http\Controllers\ComptableController::class, 'searchEmployeComptable'])->middleware('role:comptable')->name('searchEmployeComptable');
+Route::any('searchEmployeComptable',[App\Http\Controllers\ComptableController::class, 'searchEmployeComptable'])->middleware('role:comptable')->name('searchEmployeComptable');
 Route::get('/detailsEmployeComptable/{matricule}',[App\Http\Controllers\ComptableController::class, 'detailsEmployeComptable'])->middleware('role:comptable')->name('detailsEmployeComptable');
 
 
 // ROUTES INFORMATICIEN 
 Route::get('informaticien_dashboard', 'App\Http\Controllers\InformaticienController@index')->middleware('role:informaticien')->name('informaticien_dashboard');;
-Route::any('/searchEmployeInformaticien',[App\Http\Controllers\InformaticienController::class, 'searchEmployeInformaticien'])->middleware('role:informaticien')->name('searchEmployeInformaticien');
+Route::any('searchEmployeInformaticien',[App\Http\Controllers\InformaticienController::class, 'searchEmployeInformaticien'])->middleware('role:informaticien')->name('searchEmployeInformaticien');
 Route::get('nouveauPointage/{matricule}', 'App\Http\Controllers\InformaticienController@nouveauPointage')->middleware('role:informaticien')->name('nouveauPointage');;
 Route::any('enregistrerPointage', 'App\Http\Controllers\InformaticienController@enregistrerPointage')->middleware('role:informaticien')->name('enregistrerPointage');;
 
@@ -86,11 +86,12 @@ Route::get('admin_dashboard', 'App\Http\Controllers\AdminController@index')->mid
 
 // ROUTES SECRETAIRE COMPTABLE 
 
-Route::get('secretaire_comptable_dashboard', 'App\Http\Controllers\SecretaireComptableControll  er@index')->middleware('role:secretaire_comptable')->name('secretaire_comptable_dashboard');;
+Route::get('secretaire_comptable_dashboard', 'App\Http\Controllers\SecretaireComptableController@index')->middleware('role:secretaire_comptable')->name('secretaire_comptable_dashboard');;
 Route::get('nouvelleDemandePaiement/{matricule}', 'App\Http\Controllers\SecretaireComptableController@nouvelleDemandePaiement')->middleware('role:secretaire_comptable')->name('nouvelleDemandePaiement');;
 Route::any('enregistrerDemandePaiement', 'App\Http\Controllers\SecretaireComptableController@enregistrerDemandePaiement')->middleware('role:secretaire_comptable')->name('enregistrerDemandePaiement');;
 Route::any('verifierSeances', 'App\Http\Controllers\SecretaireComptableController@verifierSeances')->middleware('role:secretaire_comptable')->name('verifierSeances');;
 Route::get('listeDemandesPaiements', 'App\Http\Controllers\SecretaireComptableController@listeDemandesPaiements')->name('listeDemandesPaiements');
+Route::any('searchEmployeSecretaireComptable', 'App\Http\Controllers\SecretaireComptableController@searchEmployeSecretaireComptable')->middleware('role:secretaire_comptable')->name('searchEmployeSecretaireComptable');;
 
 
 // ROUTES RH
@@ -98,7 +99,7 @@ Route::get('listeDemandesPaiements', 'App\Http\Controllers\SecretaireComptableCo
 Route::get('rh_dashboard', 'App\Http\Controllers\RHController@index')->middleware('role:rh')->name('rh_dashboard');;
 Route::get('/nouvelEmploye', 'App\Http\Controllers\RHController@nouvelEmploye')->middleware('role:rh')->name('nouvelEmploye');;
 Route::any('enregistrerEmploye', 'App\Http\Controllers\RHController@enregistrerEmploye')->middleware('role:rh')->name('enregistrerEmploye');;
-Route::any('/searchEmployerh',[App\Http\Controllers\RHController::class, 'searchEmployerh'])->middleware('role:rh')->name('searchEmployerh');
+Route::any('searchEmployeRH', 'App\Http\Controllers\RHController@searchEmployeRH')->middleware('role:rh')->name('searchEmployeRH');;
 
 
 

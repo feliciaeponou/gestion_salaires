@@ -16,8 +16,8 @@ class ComptableController extends Controller
         return view('comptable.index', compact('employes'));
       }
 
-      public function searchEmployeComptable() {
-        $q = Request::get ( 'q' );
+      public function searchEmployeComptable(Request $request) {
+        $q = $request->q;
         $employe = Employe::where('nom_prenoms','LIKE','%'.$q.'%')->get();
         if(count($employe) > 0)
             return view('comptable.index')->withDetails($employe)->withQuery ( $q );

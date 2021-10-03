@@ -20,8 +20,8 @@ class InformaticienController extends Controller
         // return view('informaticien.index');
       }
 
-      public function searchEmployeInformaticien() {
-        $q = Request::get ( 'q' );
+      public function searchEmployeInformaticien(Request $request) {
+        $q = $request->q;
         $employe = Employe::where('nom_prenoms','LIKE','%'.$q.'%')->get();
         if(count($employe) > 0)
             return view('informaticien.index')->withDetails($employe)->withQuery ( $q );

@@ -19,11 +19,11 @@ class RHController extends Controller
         return view('rh.index', compact('employes'));
       }
 
-      public function searchEmployerh() {
-        $q = Request::get ( 'q' );
-        $employe = Employe::where('nom_prenoms','LIKE','%'.$q.'%')->get();
+      public function searchEmployerh(Request $request) {
+        
+        $employe = Employe::where('nom_prenoms','LIKE','%'.$request->q.'%')->get();
         if(count($employe) > 0)
-            return view('rh.index')->withDetails($employe)->withQuery ( $q );
+            return view('rh.index')->withDetails($employe)->withQuery ( $request->q );
         else return view ('rh.index')->withMessage('Aucune correspondance trouvée !');
       }
 

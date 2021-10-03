@@ -30,7 +30,7 @@
             </ul>
             <ul class="navbar-nav   d-flex align-items-center">
 
-            <form action="/searchEmployeSecretaireComptable" method="POST" role="search">
+            <form action="{{ route('searchEmployeSecretaireComptable') }}" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="d-flex form-control" name="q" style="width: 300px; height : 49px;  margin-top : 15px"
