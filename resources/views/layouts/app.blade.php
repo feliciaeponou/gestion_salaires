@@ -170,26 +170,6 @@ $(document).on('change','#daterangepicker', function () {
   var date_debut1 = date_debut.split('/');
   var date_fin1 = date_fin.split('/');
 
-  // TODO Requete vers la bdd pour recuperer toutes les seances effectuees entre ces deux dates 
-  $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-  $.ajax({
-           type:'POST',
-           url:"{{ route('ajaxRequest.post') }}",
-           data:{
-             date_debut:date_debut,
-             date_fin:date_fin,
-             matricule:matricule
-             },
-          //  success:function(data){
-          //     alert(data.success);
-          //  }
-        });
-
 
 
   

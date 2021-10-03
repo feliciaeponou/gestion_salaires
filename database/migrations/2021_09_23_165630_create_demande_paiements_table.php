@@ -18,12 +18,12 @@ class CreateDemandePaiementsTable extends Migration
             $table->string('matricule');
             $table->string('periode');
             $table->string('nbSeances');
-            $table->string('listSeances');
+            $table->string('listSeances')->nullable();
             $table->string('volumeHoraireTotal');
             $table->string('coutTotal');
-            $table->string('valide');
-            $table->string('rejete');
-            $table->string('paye');
+            $table->string('valide')->nullable();
+            $table->string('rejete')->nullable();
+            $table->string('paye')->nullable();
             $table->timestamps();
         });
     }

@@ -14,8 +14,6 @@
                         <div class="card-body">
 
 
-                       
-                                   
 
                                     @if(isset($details))
 
@@ -36,7 +34,10 @@
                                         
 
 
-                                    <form>
+                                    <form method="post" action="{{ route('enregistrerDemandePaiement') }}" autocomplete="off"
+                enctype="multipart/form-data">
+                @csrf
+                @method('patch')
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                         <label class="form-control-label" for="input-name">
@@ -86,15 +87,7 @@
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
                                         <input type="text" class="form-control" readonly name="coutTotal" value=" {{ $salaireTotal  }}" > 
-                                    </div>
-
-                                    <!-- <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-name">
-                                            {{ __('Fin de la Seance') }}
-                                        </label>
-                                         <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> 
-                                        <input type="text" class="form-control " id="timepicker3" name="finSeance"> 
-                                    </div> -->
+                                    </div>   
 
                                    <input type="hidden" name="employe_id" value="{{$employe -> id}}">
                                     
@@ -146,7 +139,7 @@
                     </div>
                     <input type="hidden" name="salaire_par_heure" value="{{$employe -> salaire_par_heure}}">
                     <div class="text-center">
-                        <button type="submit" class="btn btn-default mt-4">{{ __('Vérifier') }}</button>
+                        <button type="submit" name="verifier" class="btn btn-default mt-4">{{ __('Vérifier') }}</button>
                     </div>
 
                     </form>

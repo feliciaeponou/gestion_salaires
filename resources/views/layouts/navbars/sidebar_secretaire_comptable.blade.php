@@ -23,8 +23,8 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __("Liste des Employés") }}</p>
                 </a>
             </li>
-            <li class="nav-item @if($activePage == 'demandesPaiements') active @endif">
-                <a class="nav-link" href="/">
+            <li class="nav-item @if($activePage == 'listeDemandesPaiements') active @endif">
+                <a class="nav-link" href="{{route('listeDemandesPaiements')}}">
                     <!-- <i class="nc-icon nc-paper-2"></i> -->
                     <p>{{ __("Demandes de paiements") }}</p>
                 </a>

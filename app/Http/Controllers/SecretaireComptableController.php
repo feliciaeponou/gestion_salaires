@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Employe;
 use App\Models\Pointage;
+use App\Models\DemandePaiement;
 use DB;
 use Log;
 
@@ -48,64 +49,42 @@ class SecretaireComptableController extends Controller
       public function enregistrerDemandePaiement(Request $request)
       {
             $request->validate([
-              'employe_id' => ['required', 'string', 'max:255'],
                 'matricule' => ['required', 'string', 'max:255'],
-                'debutSeance' => ['required', 'string', 'max:255'],
-                'debutPause' => ['required', 'string', 'max:255'],
-                'finPause' => ['required', 'string', 'max:255'],
-                'finSeance' => ['required', 'string', 'max:255'],
-                'dateSeance' => ['required', 'string', 'max:255'],
+                'periode' => ['required', 'string', 'max:255'],
+                'nbSeances' => ['required', 'string', 'max:255'],
+                // 'listSeances' => ['required', 'string', 'max:255'],
+                'volumeHoraireTotal' => ['required', 'string', 'max:255'],
+                'coutTotal' => ['required', 'string', 'max:255'],
             ]);
 
-          $user = Pointage::create([
-            'employe_id' => $request->employe_id,
-              'matricule' => $request->matricule,
-              'debutSeance' => $request->debutSeance,
-              'debutPause' => $request->debutPause,
-              'finPause' => $request->finPause,
-              'finSeance' => $request->finSeance,
-              'dateSeance' => $request->dateSeance,
+          $user = DemandePaiement::create([
+            'matricule' => $request->matricule,
+              'periode' => $request->periode,
+              'nbSeances' => $request->nbSeances,
+              // 'listeSeances' => $request->listeSeances,
+              'volumeHoraireTotal' => $request->volumeHoraireTotal,
+              'coutTotal' => $request->coutTotal,
           ]);
 
-          return back()->withStatus(__('Nouvelle séance ajoutée avec succès'));
+          return back()->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
       }
 
 
       public function verifierSeances(Request $request)
     {
 
+      if (isset( $request->periode )) {
       
       $periodeExploded = explode(" ", $request->periode);
       $dateDebut = $periodeExploded[0];
       $dateFin = $periodeExploded[2];
 
-      // echo "Date debut : ". $dateDebut . " Date fin : ". $dateFin . "<br>";
-      // echo $request->matricule . "<br>";
 
       $pointages = Pointage::whereBetween('dateSeance',array(strtotime($dateDebut),strtotime($dateFin)))->where('matricule',$request->matricule )->get();
 
 // FIXME ne calcule pas bien le nombre de seances quand on selectionne des petiodes differentes
 
-      // $pointages = Pointage::where('dateSeance', '>=', strtotime($dateDebut))
-      // ->where('dateSeance', '<=', strtotime($dateFin))    
-      // ->where('matricule',$request->matricule)
-      // ->get();
-
       $nbSeances = count($pointages);
-      
-
-      // echo "Nombre de seances : ". $nbSeances ."<br>";
-
-
-      // $volumeHoraireTotal = 0;
-
-      // foreach ($pointages as $pointage) {
-      //   $volumeHoraireTotal = $volumeHoraireTotal + $pointage->volumeHoraire;
-      //   echo "Volume horaire total = ". $volumeHoraireTotal . "<br>";
-      //   $salaireTotal = $request->salaire_par_heure * $volumeHoraireTotal;
-      //   echo "Salaire toytal à payer = ". $salaireTotal . "<br>";
-      // }
-      
 
       if(count($pointages) > 0) {
 
@@ -119,7 +98,21 @@ class SecretaireComptableController extends Controller
         return view ('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withMessage('Aucune correspondance trouvée !')->withErrors(__('Aucune séance enregistrée durant cette période'));;
       }
      
+        
+      } else {
+        $employes = DB::table('employes')->get();
+        return view('secretaire_comptable.index', compact('employes'));
+        
+      }
+      
      
+    }
+
+    public function listeDemandesPaiements()
+    {
+      $demandePaiements = DemandePaiement::all();
+        
+        return view('secretaire_comptable.listeDemandesPaiements', compact('demandePaiements'))->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
     }
 
 }

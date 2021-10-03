@@ -9,6 +9,14 @@ class DemandePaiement extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'matricule',
+         'periode',
+             'nbSeances', 
+             'volumeHoraireTotal', 
+             'coutTotal',
+    ];
+
     public function employes()
     {
         return $this->belongsTo(Employe::class);

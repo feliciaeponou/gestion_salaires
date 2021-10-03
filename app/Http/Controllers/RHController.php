@@ -31,10 +31,7 @@ class RHController extends Controller
       public function detailsEmployerh($matricule)
       {
         $pointages = Pointage::where('matricule',''.$matricule.'')->get();
-
-
         return view('rh.detailsEmploye', compact('pointages'));
-        
         
       }
       public function nouvelEmploye()
