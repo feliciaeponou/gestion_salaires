@@ -76,6 +76,7 @@ Route::get('directeur_dashboard', 'App\Http\Controllers\DirecteurController@inde
 // ROUTES EMPLOYE 
 
 Route::get('employe_dashboard', 'App\Http\Controllers\EmployeController@index')->middleware('role:employe')->name('employe_dashboard');;
+// Route::get('seancesEmploye', 'App\Http\Controllers\EmployeController@index')->middleware('role:employe')->name('seancesEmploye');;
 
 
 

@@ -14,7 +14,7 @@ class EmployeSeeder extends Seeder
      */
     protected $employes = [
         [
-            'matricule' => '0123456789',
+            'matricule' => '0123',
             'nom_prenoms' => 'Oulai Bernard',
             'date_naissance' => '27/03/1980',
             'genre' => 'H',
@@ -28,7 +28,7 @@ class EmployeSeeder extends Seeder
             'password' => 'oulaibernard',
         ],
         [
-            'matricule' => '1011121314',
+            'matricule' => '1011',
             'nom_prenoms' => 'Koffi Amenan',
             'date_naissance' => '16/06/1992',
             'genre' => 'F',

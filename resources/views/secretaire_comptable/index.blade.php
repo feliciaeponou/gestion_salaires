@@ -129,21 +129,25 @@
                                 <thead>
                                     <th>Matricule</th>
                                     <th>Nom et Prénom(s)</th>
-                                    <th>Service</th>
-                                    <th>Catégorie</th>
+                                    <!-- <th>Service</th> -->
+                                    <th>Volume horaire non payé</th>
                                 </thead>
                                 
                                 <tbody>
                                 @foreach ($employes as $employe)
+                                @foreach ( $volumeHoraireTotal as $volumeHoraireTota)
         
                                     <tr>
                                         <td>{{ $employe->matricule }}</td>
                                         <td>{{ $employe->nom_prenoms }}</td>
-                                        <td>{{ $employe->service }}</td>
-                                        <td>{{ $employe->categorie }}</td>
+                                        <!-- <td>{{ $employe->service }}</td> -->
+                                        
+                                        <td>{{ $volumeHoraireTota }}</td>
+                                       
                                         <td> <a href="{{ route('nouvelleDemandePaiement', $employe->matricule) }}" class="btn btn-default">
                             <span class="nc-icon nc-simple-add"></i></span></a></td>
                                     </tr>
+                                    @endforeach
                                     @endforeach
 
                                     

@@ -27,8 +27,7 @@
                 </li>
 
             </ul>
-            <ul class="navbar-nav   d-flex align-items-center">
-
+            <ul class="navbar-nav   d-flex align-items-center"> 
             <form action="{{ route('searchEmployeRH') }}" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">

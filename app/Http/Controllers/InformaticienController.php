@@ -75,6 +75,7 @@ class InformaticienController extends Controller
               'finSeance' => $request->finSeance,
               'dateSeance' => $request->dateSeance,
               'volumeHoraire' => $volumeHoraire,
+              'payee' => 'non',
           ]);
 
           // echo "Volume horaire : ". $volumeHoraire;

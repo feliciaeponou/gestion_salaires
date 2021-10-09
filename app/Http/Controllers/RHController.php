@@ -55,10 +55,12 @@ class RHController extends Controller
                 'password' => ['required', 'string', 'max:255'],
             ]);
 
+            $matricule = mt_rand(1000,9999);
+
           
 
           $employe = Employe::create([
-              'matricule' => mt_rand(1000000000,9999999999),
+              'matricule' => $matricule,
               'nom_prenoms' => $request->nom_prenoms,
               'date_naissance' => $request->date_naissance,
               'genre' => $request->genre,
@@ -76,6 +78,8 @@ class RHController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => 'employe',
+            'matricule' => $matricule,
+
             
         ]);
 

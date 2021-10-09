@@ -11,12 +11,14 @@ Tip 2: you can also add an image using data-image tag
             </a>
         </div>
         <ul class="nav">
-            <!-- <li class="nav-item @if($activePage == 'employe_dashboard') active @endif">
+            <li class="nav-item @if($activePage == 'employe_dashboard') active @endif">
                 <a class="nav-link" href="{{route('employe_dashboard')}}">
                     <i class="nc-icon nc-chart-pie-35"></i>
-                    <p>{{ __("Mes heures de travail") }}</p>
+                    <p>{{ __("Mes séances") }}</p>
                 </a>
             </li>
+
+             <!--
            
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#laravelExamples" @if($activeButton =='laravel') aria-expanded="true" @endif>

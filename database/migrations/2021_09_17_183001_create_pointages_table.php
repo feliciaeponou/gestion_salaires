@@ -23,6 +23,7 @@ class CreatePointagesTable extends Migration
             $table->string('finSeance');
             $table->string('dateSeance');
             $table->string('volumeHoraire');
+            $table->string('payee')->nullable();
             $table->timestamps();
 
 

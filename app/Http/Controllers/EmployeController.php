@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pointage;
 
 class EmployeController extends Controller
 {
@@ -10,6 +11,8 @@ class EmployeController extends Controller
         $this->middleware('auth');
       }
       public function index() {
-        return view('employe.index');
+
+        $seances = Pointage::all();
+        return view('employe.index', compact('seances'));
       }
 }

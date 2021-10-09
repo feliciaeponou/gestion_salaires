@@ -18,6 +18,7 @@ class Pointage extends Model
             'finSeance', 
             'dateSeance', 
             'volumeHoraire', 
+            'payee', 
 
    ];
 

@@ -19,6 +19,18 @@ class SecretaireComptableController extends Controller
       public function index() {
 
         $employes = Employe::all();
+        $volumeHoraireTotal = 0;
+
+        foreach ($employes as $employe) {
+          $pointages = Pointage::where('matricule',''.$employe->matricule.'')->where('payee','non')->get();
+          $nbSeances = count($pointages);
+          foreach ($pointages as $pointage) {
+            $volumeHoraireTotal = $volumeHoraireTotal + $pointage->volumeHoraire;
+          }
+        }
+
+        // echo $volumeHoraireTotal;
+        
         
         return view('secretaire_comptable.index', compact('employes'));
     
@@ -39,7 +51,7 @@ class SecretaireComptableController extends Controller
         $employes = DB::table('employes')->where('matricule', ''.$matricule.'')->get();
 
         // if(count($employe) > 0)
-
+ 
         return view('secretaire_comptable.nouvelleDemandePaiement', compact('employes'));
         // else 
         // return view('secretaire_comptable.nouvelleDemandePaiement', compact('employes'));
@@ -82,7 +94,7 @@ class SecretaireComptableController extends Controller
 
       $pointages = Pointage::whereBetween('dateSeance',array(strtotime($dateDebut),strtotime($dateFin)))->where('matricule',$request->matricule )->get();
 
-// FIXME ne calcule pas bien le nombre de seances quand on selectionne des petiodes differentes
+// FIXME ne calcule pas bien le nombre de seances quand on selectionne des periodes differentes
 
       $nbSeances = count($pointages);
 
