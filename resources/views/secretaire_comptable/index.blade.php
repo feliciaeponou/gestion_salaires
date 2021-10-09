@@ -30,7 +30,7 @@
             </ul>
             <ul class="navbar-nav   d-flex align-items-center">
 
-            <form action="{{ route('searchEmployeSecretaireComptable') }}" method="POST" role="search">
+            <!-- <form action="{{ route('searchEmployeSecretaireComptable') }}" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="d-flex form-control" name="q" style="width: 300px; height : 49px;  margin-top : 15px"
@@ -40,7 +40,7 @@
 </button>
                     </span>
                 </div>
-            </form>
+            </form> -->
 
 
          
@@ -123,31 +123,27 @@
                         @else
 
                         
-
-
-                            <table class="table table-hover table-striped">
+                            <table id="example" class="table table-hover table-striped">
                                 <thead>
                                     <th>Matricule</th>
                                     <th>Nom et Prénom(s)</th>
                                     <!-- <th>Service</th> -->
                                     <th>Volume horaire non payé</th>
+                                    <th></th>
                                 </thead>
                                 
                                 <tbody>
                                 @foreach ($employes as $employe)
-                                @foreach ( $volumeHoraireTotal as $volumeHoraireTota)
-        
+                                
                                     <tr>
                                         <td>{{ $employe->matricule }}</td>
                                         <td>{{ $employe->nom_prenoms }}</td>
-                                        <!-- <td>{{ $employe->service }}</td> -->
+                                        <td>{{ $employe->service }}</td>
                                         
-                                        <td>{{ $volumeHoraireTota }}</td>
                                        
                                         <td> <a href="{{ route('nouvelleDemandePaiement', $employe->matricule) }}" class="btn btn-default">
                             <span class="nc-icon nc-simple-add"></i></span></a></td>
                                     </tr>
-                                    @endforeach
                                     @endforeach
 
                                     

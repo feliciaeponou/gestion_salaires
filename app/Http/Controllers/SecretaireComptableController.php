@@ -22,17 +22,30 @@ class SecretaireComptableController extends Controller
         $volumeHoraireTotal = 0;
 
         foreach ($employes as $employe) {
+
           $pointages = Pointage::where('matricule',''.$employe->matricule.'')->where('payee','non')->get();
-          $nbSeances = count($pointages);
+
+          $nom_prenoms =  $employe->nom_prenoms;
+
           foreach ($pointages as $pointage) {
-            $volumeHoraireTotal = $volumeHoraireTotal + $pointage->volumeHoraire;
-          }
+
+            $volumeHoraire = $pointage->volumeHoraire;
+
+            echo "Employe ". $nom_prenoms." Volume horaire ".$volumeHoraire. "<br>";
+
+            $volumeHoraireTotal = $volumeHoraireTotal + $volumeHoraire;
+            
+            echo "Employe ". $nom_prenoms." Volume horaire ".$volumeHoraireTotal. "<br>";
+            break;
+          }   
         }
 
-        // echo $volumeHoraireTotal;
+      
+            // $volumeHoraireTotal = $volumeHoraireTotal + $volumeHoraire;
+            // echo "Employe ". $nom_prenoms." Volume horaire ".$volumeHoraireTotal. "<br>";
+          
         
-        
-        return view('secretaire_comptable.index', compact('employes'));
+        // return view('secretaire_comptable.index', compact('employes'));
     
         // return view('secretaire_comptable.index');
       }

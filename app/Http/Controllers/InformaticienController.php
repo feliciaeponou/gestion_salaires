@@ -39,11 +39,12 @@ class InformaticienController extends Controller
         // else 
         // return view('informaticien.nouveauPointage', compact('employes'));
 
-
       }
 
       public function enregistrerPointage(Request $request)
       {
+        // TODO verification pour savoir si le pointage n'a pas été validé pour cette date et possibilité de suppression en cas d'erreur (Après validation du manager)
+        // TODO Ajout des minutes dans le calcul du volume horaire
 
         $debutSeance = strtotime($request->input('debutSeance'));
         $debutPause = strtotime($request->input('debutPause'));

@@ -14,8 +14,9 @@
                         @if(isset($seances))
 
 
-                        <table class="table table-hover table-striped">
+                        <table id="example" class="table table-hover table-striped">
                                 <thead>
+                                <th>Date de la séance</th>
                                     <th>Debut de la séance</th>
                                     <th>Debut de la pause</th>
                                     <th>Fin de la pause</th>
@@ -28,6 +29,7 @@
                                 @foreach ($seances as $seance)
         
                                     <tr>
+                                    <td>{{ $seance->dateSeance }}</td>
                                         <td>{{ $seance->debutSeance }}</td>
                                         <td>{{ $seance->debutPause }}</td>
                                         <td>{{ $seance->finPause }}</td>

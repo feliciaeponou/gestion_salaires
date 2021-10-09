@@ -40,25 +40,23 @@
                                         
                                     </div>
 
-                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}" >
                                         <label class="form-control-label" for="input-name" >
                                             {{ __('Genre') }}
                                         </label> <br>
+                                       
 
-                                        <div class="form-check  form-check-inline">
-                                            <input class="form-check-input" type="radio" name="genre" id="inlineRadio1" value="homme" checked>
-                                            <label class="form-check-label" for="inlineRadio1">HOMME</label>
-                                            </div>
-                                            <div class="form-check  form-check-inline">
-                                            <input class="form-check-input" type="radio" name="genre" id="inlineRadio2" value="femme">
-                                            <label class="form-check-label" for="inlineRadio2">
-                                                FEMME
-                                            </label>
-                                            </div>
+                                        <div class="form-check form-check-inline"  style="margin-left : 20px">
+                                        <input class="form-check-input" type="radio" name="genre" id="inlineRadio1" value="homme" checked> <label  for="inlineRadio1">HOMME</label><br>
+                                        <input class="form-check-input" type="radio" name="genre" id="inlineRadio2" value="femme"> <label  for="inlineRadio1">FEMME</label>
+                                           
+                                            <!-- <label class="form-check-label" for="inlineRadio1">HOMME</label> -->
+                                        </div> 
+                                        <!-- <div class="form-check  form-check-inline"  style="margin-left : 20px">
+                                           
+                                            <label class="form-check-label" for="inlineRadio2">FEMME </label>
+                                        </div> -->
                                     </div>
-
-                                    
-
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">

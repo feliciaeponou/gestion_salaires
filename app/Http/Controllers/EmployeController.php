@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Models\Pointage;
+use DB;
 
 class EmployeController extends Controller
 {
@@ -11,8 +13,10 @@ class EmployeController extends Controller
         $this->middleware('auth');
       }
       public function index() {
+        $matricule = Auth::user()->matricule; 
 
-        $seances = Pointage::all();
+        $seances = DB::table('pointages')->where('matricule', $matricule)->get();
+
         return view('employe.index', compact('seances'));
       }
 }

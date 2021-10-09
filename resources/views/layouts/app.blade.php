@@ -29,9 +29,10 @@
         <link href="{{ asset('light-bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('light-bootstrap/css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
         <!-- CSS Just for demo purpose, don't include it in your project -->
-        <link href="{{ asset('light-bootstrap/css/demo.css') }}" rel="stylesheet" />
+        <!-- <link href="{{ asset('light-bootstrap/css/demo.css') }}" rel="stylesheet" /> -->
 
       <link rel="stylesheet" href="{{ asset('css/flatpicker.min.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}">
 
 
     <script src="{{ asset('light-bootstrap/js/core/jquery.3.2.1.min.js') }}"></script>
@@ -42,8 +43,8 @@
     <!-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> -->
     <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
     <script src="{{ asset('js/flatpicker.min.js') }}"></script>
-
-<script src="{{ asset('js/flatpicker.min.js') }}"></script>
+    <script src="{{ asset('js/fr.js') }}"></script>
+    <script src="{{ asset('js/datatables.min.js') }}"></script>
 
     <script type="text/javascript">
     $( function() {
@@ -52,7 +53,7 @@
     $("#datepicker").flatpickr(
       {
     dateFormat: "d/m/Y",
-    minDate: "today",
+    // minDate: "today",
     "locale": {
         "firstDayOfWeek": 1, // start week on Monday
         "locale": "fr" 
@@ -164,6 +165,10 @@ $(document).on('change','#daterangepicker', function () {
 });
 
 
+$('#example').DataTable();
+
+$('#example1').DataTable();
+
 
 
   } );
@@ -229,7 +234,7 @@ $(document).on('change','#daterangepicker', function () {
     <!--  Notifications Plugin    -->
     <!-- <script src="{{ asset('light-bootstrap/js/plugins/bootstrap-notify.js') }}"></script> -->
     <!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
-    <!-- <script src="{{ asset('light-bootstrap/js/light-bootstrap-dashboard.js?v=2.0.0') }}" type="text/javascript"></script> -->
+    <script src="{{ asset('light-bootstrap/js/light-bootstrap-dashboard.js?v=2.0.0') }}" type="text/javascript"></script>
     <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{ asset('light-bootstrap/js/demo.js') }}"></script>
     

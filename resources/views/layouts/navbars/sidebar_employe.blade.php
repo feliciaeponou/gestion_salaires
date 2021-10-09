@@ -13,10 +13,29 @@ Tip 2: you can also add an image using data-image tag
         <ul class="nav">
             <li class="nav-item @if($activePage == 'employe_dashboard') active @endif">
                 <a class="nav-link" href="{{route('employe_dashboard')}}">
-                    <i class="nc-icon nc-chart-pie-35"></i>
+                    <!-- <i class="nc-icon nc-chart-pie-35"></i> -->
                     <p>{{ __("Mes séances") }}</p>
                 </a>
             </li>
+            <li class="nav-item @if($activePage == 'demandePaiementEmploye') active @endif">
+                <a class="nav-link" href="{{route('employe_dashboard')}}">
+                    <!-- <i class="nc-icon nc-chart-pie-35"></i> -->
+                    <p>{{ __("Demander un paiement") }}</p>
+                </a>
+            </li>
+            <li class="nav-item @if($activePage == 'planifier_conges') active @endif">
+                <a class="nav-link" href="{{route('employe_dashboard')}}">
+                    <!-- <i class="nc-icon nc-chart-pie-35"></i> -->
+                    <p>{{ __("Planifier mes congés") }}</p>
+                </a>
+            </li>
+
+            <li class="nav-item @if($activePage == 'user') active @endif">
+                            <a class="nav-link" href="{{route('profile.edit')}}">
+                                <!-- <i class="nc-icon nc-single-02"></i> -->
+                                <p>{{ __("Mon Profil") }}</p>
+                            </a>
+                        </li>
 
              <!--
            

@@ -30,7 +30,7 @@
             </ul>
             <ul class="navbar-nav   d-flex align-items-center">
 
-            <form action="/searchEmployeInformaticien" method="POST" role="search">
+            <!-- <form action="/searchEmployeInformaticien" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="d-flex form-control" name="q" style="width: 300px; height : 49px;  margin-top : 15px"
@@ -40,7 +40,7 @@
 </button>
                     </span>
                 </div>
-            </form>
+            </form> -->
 
 
          
@@ -73,7 +73,7 @@
                         @if(isset($details))
                             <p> Résultats de recherche pour <b> {{ $query }} </b> </p>
                             
-                        <table class="table table-hover table-striped">
+                        <table id="example" class="table table-hover table-striped">
                                 <thead>
                                     <th>Matricule</th>
                                     <th>Nom et Prénom(s)</th>
@@ -98,7 +98,7 @@
                         
                         @elseif  (isset($message))
 
-                        <table class="table table-hover table-striped">
+                        <table id="example" class="table table-hover table-striped">
                                 <thead>
                                     <th>Matricule</th>
                                     <th>Nom</th>
@@ -113,24 +113,19 @@
                                         <p>Aucune correspondance trouvée</p>
                                         
                                     <!-- </tr> -->
-
                                     
-</tbody>
-</table>
-
-
+                                </tbody>
+                                </table>
 
                         @else
 
-                        
-
-
-                            <table class="table table-hover table-striped">
+                            <table id="example1" class="table table-hover table-striped">
                                 <thead>
                                     <th>Matricule</th>
                                     <th>Nom et Prénom(s)</th>
                                     <th>Service</th>
                                     <th>Catégorie</th>
+                                    <th></th>
                                 </thead>
                                 
                                 <tbody>
