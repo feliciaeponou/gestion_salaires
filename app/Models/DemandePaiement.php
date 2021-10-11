@@ -15,6 +15,9 @@ class DemandePaiement extends Model
              'nbSeances', 
              'volumeHoraireTotal', 
              'coutTotal',
+             'valide',
+             'rejete',
+             'paye',
     ];
 
     public function employes()

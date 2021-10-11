@@ -11,13 +11,17 @@
                       
 
                         @include('alerts.success')
-                            <table class="table table-hover table-striped">
+                            <table id="example" class="table table-hover table-striped">
                                 <thead>
                                     <th>Matricule</th>
+                                    <th>Nom & Prénom(s)</th>
                                     <th>Periode</th>
                                     <th>Nombre Séances</th>
                                     <th>Volume horaire Total</th>
                                     <th>Coût Total</th>
+                                    <th>Validé</th>
+                                    <th>Rejeté</th>
+                                    <th>Payé</th>
                                 </thead>
                                 
                                 <tbody>
@@ -26,10 +30,14 @@
         
                                     <tr>
                                         <td>{{ $demandePaiement->matricule }}</td>
+                                        <td>{{ $demandePaiement->nom_prenoms }}</td>
                                         <td>{{ $demandePaiement->periode }}</td>
                                         <td>{{ $demandePaiement->nbSeances }}</td>
                                         <td>{{ $demandePaiement->volumeHoraireTotal }}</td>
                                         <td>{{ $demandePaiement->coutTotal  }} FCFA</td>
+                                        <td>@if ($demandePaiement->valide=="non") Non @elseif  ($demandePaiement->valide == "oui") Oui @endif</td>
+                                        <td>@if ($demandePaiement->rejete=="non") Non @elseif  ($demandePaiement->rejete == "oui") Oui @endif</td>
+                                        <td>@if ($demandePaiement->paye=="non") Non @elseif  ($demandePaiement->paye == "oui") Oui @endif</td>
                                         
                                     </tr>
                                     @endforeach

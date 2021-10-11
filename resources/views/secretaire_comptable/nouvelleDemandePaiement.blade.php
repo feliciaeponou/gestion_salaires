@@ -92,7 +92,12 @@
                                    <input type="hidden" name="employe_id" value="{{$employe -> id}}">
                                     
                                     <div class="text-center">
+                                        @if ($volumeHoraireTotal < 80 )
+                                         <h2 style="color : red">L'employé n'est pas autorisé à faire une demande de paiement</h2>
+                                        @else
+                                        
                                         <button type="submit" class="btn btn-default mt-4">{{ __('Enregistrer') }}</button>
+                                        @endif
                                     </div>
                                 </div>
                             </form>

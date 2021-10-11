@@ -57,6 +57,8 @@ Route::get('/', function () {
 Route::get('comptable_dashboard', 'App\Http\Controllers\ComptableController@index')->middleware('role:comptable')->name('comptable_dashboard');;
 Route::any('searchEmployeComptable',[App\Http\Controllers\ComptableController::class, 'searchEmployeComptable'])->middleware('role:comptable')->name('searchEmployeComptable');
 Route::get('/detailsEmployeComptable/{matricule}',[App\Http\Controllers\ComptableController::class, 'detailsEmployeComptable'])->middleware('role:comptable')->name('detailsEmployeComptable');
+Route::get('listeDemandesPaiementsComptable', 'App\Http\Controllers\ComptableController@listeDemandesPaiementsComptable')->middleware('role:comptable')->name('listeDemandesPaiementsComptable');
+Route::get('/validerDemandePaiement/{id}',[App\Http\Controllers\ComptableController::class, 'validerDemandePaiement'])->middleware('role:comptable')->name('validerDemandePaiement');
 
 
 // ROUTES INFORMATICIEN 
@@ -69,6 +71,8 @@ Route::any('enregistrerPointage', 'App\Http\Controllers\InformaticienController@
 
 // ROUTES DIRECTEUR 
 Route::get('directeur_dashboard', 'App\Http\Controllers\DirecteurController@index')->middleware('role:directeur')->name('directeur_dashboard');;
+Route::get('listeDemandesPaiementsDirecteur', 'App\Http\Controllers\DirecteurController@listeDemandesPaiementsDirecteur')->middleware('role:directeur')->name('listeDemandesPaiementsDirecteur');
+Route::get('/payerDemandePaiement/{id}',[App\Http\Controllers\DirecteurController::class, 'payerDemandePaiement'])->middleware('role:directeur')->name('payerDemandePaiement');
 
 
 

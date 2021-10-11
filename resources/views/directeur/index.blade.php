@@ -1,224 +1,152 @@
-@extends('layouts.app', ['activePage' => 'dashboard_comptable', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION', 'navName' => 'Dashboard', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'liste_employes', 'title' => 'Gestion Des Salaires | Liste des employés', 'navName' => 'Liste des employés', 'activeButton' => 'laravel'])
 
 @section('content')
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card ">
+                <div class="col-md-12">
+                    <div class="card strpied-tabled-with-hover">
                         <div class="card-header ">
-                            <h4 class="card-title">{{ __('Interface directeur') }}</h4>
-                            <p class="card-category">{{ __('Last Campaign Performance') }}</p>
-                        </div>
-                        <div class="card-body ">
-                            <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Open') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Bounce') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Unsubscribe') }}
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-clock-o"></i> {{ __('Campaign sent 2 days ago') }}
-                            </div>
-                        </div>
-                    </div>
+                            <!-- <h4 class="card-title">Liste des employés</h4> -->
+
+
+
+                            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+    <div class="container-fluid">
+        <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar burger-lines"></span>
+            <span class="navbar-toggler-bar burger-lines"></span>
+            <span class="navbar-toggler-bar burger-lines"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <ul class="nav navbar-nav mr-auto">
+                <!-- <li class="nav-item">
+                    <a href="#" class="btn btn-default" data-toggle="dropdown"> Ajouter un employé
+                         <i class="nc-icon nc-palette"></i>
+                        <span class="d-lg-none">{{ __('Nouvel employé') }}</span> 
+                    </a>
+                </li> -->
+
+            </ul>
+            <ul class="navbar-nav   d-flex align-items-center">
+
+            <!-- <form action="{{ route('searchEmployeComptable') }}" method="POST" role="search">
+                {{ csrf_field() }}
+                <div class="input-group">
+                    <input type="text" class="d-flex form-control" name="q" style="width: 300px; height : 49px;  margin-top : 15px"
+                        placeholder="Rechercher des employés"> <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default">
+                            <span class="nc-icon nc-zoom-split"></i></span>
+</button>
+                    </span>
                 </div>
-                <div class="col-md-8">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('Users Behavior') }}</h4>
-                            <p class="card-category">{{ __('24 Hours performance') }}</p>
-                        </div>
-                        <div class="card-body ">
-                            <div id="chartHours" class="ct-chart"></div>
-                        </div>
-                        <div class="card-footer ">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Open') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('Click') }}
-                                <i class="fa fa-circle text-warning"></i> {{ __('Click Second Time') }}
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-history"></i> {{ __('Updated 3 minutes ago') }}
-                            </div>
-                        </div>
+            </form> -->
+
+
+         
+                
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="no-icon">{{ __('Dropdown') }}</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">{{ __('Action') }}</a>
+                        <a class="dropdown-item" href="#">{{ __('Another action') }}</a>
+                        <a class="dropdown-item" href="#">{{ __('Something') }}</a>
+                        <a class="dropdown-item" href="#">{{ __('Something else here') }}</a>
+                        <div class="divider"></div>
+                        <a class="dropdown-item" href="#">{{ __('Separated link') }}</a>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card ">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('2017 Sales') }}</h4>
-                            <p class="card-category">{{ __('All products including Taxes') }}</p>
-                        </div>
-                        <div class="card-body ">
-                            <div id="chartActivity" class="ct-chart"></div>
-                        </div>
-                        <div class="card-footer ">
-                            <div class="legend">
-                                <i class="fa fa-circle text-info"></i> {{ __('Tesla Model S') }}
-                                <i class="fa fa-circle text-danger"></i> {{ __('BMW 5 Series') }}
-                            </div>
-                            <hr>
-                            <div class="stats">
-                                <i class="fa fa-check"></i> {{ __('Data information certified') }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card  card-tasks">
-                        <div class="card-header ">
-                            <h4 class="card-title">{{ __('Tasks') }}</h4>
-                            <p class="card-category">{{ __('Backend development') }}</p>
-                        </div>
-                        <div class="card-body ">
-                            <div class="table-full-width">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Sign contract for "What are conference organizers afraid of?"') }}</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="" checked>
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Lines From Great Russian Literature? Or E-mails From My Boss?') }}</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="" checked>
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit') }}
-                                            </td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" checked>
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Create 4 Invisible User Experiences you Never Knew About') }}</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Read "Following makes Medium better"') }}</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="" disabled>
-                                                        <span class="form-check-sign"></span>
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>{{ __('Unfollow 5 enemies from twitter') }}</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-link">
-                                                    <i class="fa fa-edit"></i>
-                                                </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-link">
-                                                    <i class="fa fa-times"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card-footer ">
-                            <hr>
-                            <div class="stats">
-                                <i class="now-ui-icons loader_refresh spin"></i> {{ __('Updated 3 minutes ago') }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </li> -->
+              
+            </ul>
         </div>
     </div>
+</nav>
+
+
+
+
+                            <!-- <p class="card-category">Here is a subtitle for this table</p> -->
+                        </div>
+                        <div class="card-body  table-responsive">
+                        @if(isset($details))
+                            <p> Résultats de recherche pour <b> {{ $query }} </b> </p>
+                            
+                        <table class="table table-hover table-striped">
+                                <thead>
+                                    <th>Matricule</th>
+                                    <th>Nom et Prénom(s)</th>
+                                    <th>Salaire / H</th>
+                                    <th>Volume horaire</th>
+                                </thead>
+                            <tbody>
+                                @foreach($details as $employe)
+                                <tr>
+                                        <td>{{ $employe->matricule }}</td>
+                                        <td>{{ $employe->nom_prenoms }}</td>
+                                        <td>{{ $employe->salaire_par_heure }}</td>
+                                        <td>{{ $employe->volume_horaire }}</td>
+                                        <td><a href="{{ route('detailsEmployeComptable', $employe->matricule) }}" class="btn btn-default">
+                            <span class="nc-icon nc-stre-right"></i></span></a></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table> 
+                        
+                        @elseif  (isset($message))
+
+                        <table class="table table-hover table-striped">
+                                <thead>
+                                    <th>Matricule</th>
+                                    <th>Nom</th>
+                                    <th>Prénom(s)</th>
+                                    <th>Service</th>
+                                    <th>Catégorie</th>
+                                </thead>
+                                
+                                <tbody>
+        
+                                    <!-- <tr> -->
+                                        <p>Aucune correspondance trouvée</p>
+                                        
+                                    <!-- </tr> -->
+
+                                    
+</tbody>
+</table>
+
+
+
+                        @else
+
+                        
+
+
+                            <table id="example" class="table table-hover table-striped">
+                                <thead>
+                                    <th>Matricule</th>
+                                    <th>Nom et Prénom(s)</th>
+                                    <th>Service</th>
+                                    <th>Catégorie</th>
+                                </thead>
+                                
+                                <tbody>
+                                @foreach ($employes as $employe)
+        
+                                    <tr>
+                                        <td>{{ $employe->matricule }}</td>
+                                        <td>{{ $employe->nom_prenoms }}</td>
+                                        <td>{{ $employe->service }}</td>
+                                        <td>{{ $employe->categorie }}</td>
+                                    </tr>
+                                    @endforeach
+
+                                    
+</tbody>
+</table>
+@endif
+
+</div>
+                                   
 @endsection
-
-@push('js')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Javascript method's body can be found in assets/js/demos.js
-            demo.initDashboardPageCharts();
-
-            demo.showNotification();
-
-        });
-    </script>
-@endpush

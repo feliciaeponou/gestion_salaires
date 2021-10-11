@@ -19,35 +19,16 @@ class SecretaireComptableController extends Controller
       public function index() {
 
         $employes = Employe::all();
-        $volumeHoraireTotal = 0;
 
-        foreach ($employes as $employe) {
-
-          $pointages = Pointage::where('matricule',''.$employe->matricule.'')->where('payee','non')->get();
-
-          $nom_prenoms =  $employe->nom_prenoms;
-
-          foreach ($pointages as $pointage) {
-
-            $volumeHoraire = $pointage->volumeHoraire;
-
-            echo "Employe ". $nom_prenoms." Volume horaire ".$volumeHoraire. "<br>";
-
-            $volumeHoraireTotal = $volumeHoraireTotal + $volumeHoraire;
-            
-            echo "Employe ". $nom_prenoms." Volume horaire ".$volumeHoraireTotal. "<br>";
-            break;
-          }   
-        }
+        // $employes = DB::table('pointages')
+        // ->join('employes', 'employes.matricule', '=', 'pointages.matricule')
+        // ->select('employes.*', 'pointages.volumeHoraire')
+        // ->where('pointages.payee', 'non')
+        // ->get();
 
       
-            // $volumeHoraireTotal = $volumeHoraireTotal + $volumeHoraire;
-            // echo "Employe ". $nom_prenoms." Volume horaire ".$volumeHoraireTotal. "<br>";
-          
-        
-        // return view('secretaire_comptable.index', compact('employes'));
-    
-        // return view('secretaire_comptable.index');
+        return view('secretaire_comptable.index', compact('employes'));
+
       }
 
       public function searchEmployeSecretaireComptable(Request $request) {
@@ -89,10 +70,21 @@ class SecretaireComptableController extends Controller
               // 'listeSeances' => $request->listeSeances,
               'volumeHoraireTotal' => $request->volumeHoraireTotal,
               'coutTotal' => $request->coutTotal,
+              'valide' => 'non',
+              'rejete' => 'non',
+              'paye' => 'non',
+
           ]);
 
-          return back()->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
-      }
+      $demandePaiements = DB::table('demande_paiements')
+      ->join('employes', 'employes.matricule', '=', 'demande_paiements.matricule')
+      ->select('employes.nom_prenoms', 'demande_paiements.*')
+      ->get();
+      
+      return view('secretaire_comptable.listeDemandesPaiements', compact('demandePaiements'))->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
+  
+
+        }
 
 
       public function verifierSeances(Request $request)
@@ -105,7 +97,7 @@ class SecretaireComptableController extends Controller
       $dateFin = $periodeExploded[2];
 
 
-      $pointages = Pointage::whereBetween('dateSeance',array(strtotime($dateDebut),strtotime($dateFin)))->where('matricule',$request->matricule )->get();
+      $pointages = Pointage::whereBetween('dateSeance',array(strtotime($dateDebut),strtotime($dateFin)))->where('matricule',$request->matricule )->where('payee','non' )->get();
 
 // FIXME ne calcule pas bien le nombre de seances quand on selectionne des periodes differentes
 
@@ -135,7 +127,12 @@ class SecretaireComptableController extends Controller
 
     public function listeDemandesPaiements()
     {
-      $demandePaiements = DemandePaiement::all();
+      // $demandePaiements = DemandePaiement::all();
+
+      $demandePaiements = DB::table('demande_paiements')
+        ->join('employes', 'employes.matricule', '=', 'demande_paiements.matricule')
+        ->select('employes.nom_prenoms', 'demande_paiements.*')
+        ->get();
         
         return view('secretaire_comptable.listeDemandesPaiements', compact('demandePaiements'))->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
     }
