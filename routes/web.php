@@ -73,7 +73,7 @@ Route::any('enregistrerPointage', 'App\Http\Controllers\InformaticienController@
 Route::get('directeur_dashboard', 'App\Http\Controllers\DirecteurController@index')->middleware('role:directeur')->name('directeur_dashboard');;
 Route::get('listeDemandesPaiementsDirecteur', 'App\Http\Controllers\DirecteurController@listeDemandesPaiementsDirecteur')->middleware('role:directeur')->name('listeDemandesPaiementsDirecteur');
 Route::get('/payerDemandePaiement/{id}',[App\Http\Controllers\DirecteurController::class, 'payerDemandePaiement'])->middleware('role:directeur')->name('payerDemandePaiement');
-
+Route::get('bulletinsPaiementsDirecteur', 'App\Http\Controllers\DirecteurController@bulletinsPaiementsDirecteur')->middleware('role:directeur')->name('bulletinsPaiementsDirecteur');
 
 
 

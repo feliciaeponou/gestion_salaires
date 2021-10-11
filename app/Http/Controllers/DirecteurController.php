@@ -54,4 +54,8 @@ class DirecteurController extends Controller
         
         
       }
+      public function bulletinsPaiementsDirecteur()
+      {
+        # code...
+      }
 }
