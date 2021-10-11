@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Employe;
+use App\Models\DemandePaiement;
+use PDF;
 class DirecteurController extends Controller
 {
     public function __construct() {
@@ -54,8 +56,16 @@ class DirecteurController extends Controller
         
         
       }
-      public function bulletinsPaiementsDirecteur()
+      public function imprimerBulletin($id)
       {
-        # code...
+        // retreive all records from db
+      $data = DB::table('demande_paiements')->where('id',$id)->get();
+
+      // share data to view
+      view()->share('demande_paiement',$data);
+      $pdf = PDF::loadView('directeur.bulletin', $data);
+
+      // download PDF file with download method
+      return $pdf->download('pdf_file.pdf');
       }
 }

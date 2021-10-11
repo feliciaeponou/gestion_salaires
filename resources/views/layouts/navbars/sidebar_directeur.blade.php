@@ -23,12 +23,12 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __("Demandes de paiement validés") }}</p>
                 </a>
             </li>
-            <li class="nav-item @if($activePage == 'listeBulletinsPaiements') active @endif">
+            <!-- <li class="nav-item @if($activePage == 'listeBulletinsPaiements') active @endif">
                 <a class="nav-link" href="{{route('bulletinsPaiementsDirecteur')}}">
-                    <!-- <i class="nc-icon nc-paper-2"></i> -->
+                    <i class="nc-icon nc-paper-2"></i>
                     <p>{{ __("Bulletins de paiement ") }}</p>
                 </a>
-            </li>
+            </li> -->
             <!-- <li class="nav-item @if($activePage == 'dashboard') active @endif">
                 <a class="nav-link" href="{{route('dashboard')}}">
                     <i class="nc-icon nc-chart-pie-35"></i>

@@ -40,7 +40,8 @@
                                         <td>@if ($demandePaiement->rejete=="non") Non @elseif  ($demandePaiement->rejete == "oui") Oui @endif</td>
                                         <td>@if ($demandePaiement->paye=="non") Non @elseif  ($demandePaiement->paye == "oui") Oui @endif</td>
                                         <td>@if ($demandePaiement->paye=="non") <a href="{{ route('payerDemandePaiement', $demandePaiement->id) }}" class="btn btn-default">
-                            Payer</a> @elseif  ($demandePaiement->paye == "oui")  @endif</td>
+                            Payer</a> @elseif  ($demandePaiement->paye == "oui") <a href="{{ route('imprimerBulletin', $demandePaiement->id) }}" class="btn btn-default">
+                            Imprimer bulletin</a>  @endif</td>
                                         
                                     </tr>
                                     @endforeach

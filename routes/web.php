@@ -74,6 +74,7 @@ Route::get('directeur_dashboard', 'App\Http\Controllers\DirecteurController@inde
 Route::get('listeDemandesPaiementsDirecteur', 'App\Http\Controllers\DirecteurController@listeDemandesPaiementsDirecteur')->middleware('role:directeur')->name('listeDemandesPaiementsDirecteur');
 Route::get('/payerDemandePaiement/{id}',[App\Http\Controllers\DirecteurController::class, 'payerDemandePaiement'])->middleware('role:directeur')->name('payerDemandePaiement');
 Route::get('bulletinsPaiementsDirecteur', 'App\Http\Controllers\DirecteurController@bulletinsPaiementsDirecteur')->middleware('role:directeur')->name('bulletinsPaiementsDirecteur');
+Route::get('/imprimerBulletin/{id}',[App\Http\Controllers\DirecteurController::class, 'imprimerBulletin'])->middleware('role:directeur')->name('imprimerBulletin');
 
 
 
