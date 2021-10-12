@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'listeDemandesPaiements', 'title' => 'Gestion Des Salaires | Liste des demandes de paiements', 'navName' => 'Liste des demandes de paiement', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'paiementsValides', 'title' => 'Gestion Des Salaires | Liste des demandes de paiements', 'navName' => 'Liste des demandes de paiement', 'activeButton' => 'laravel'])
 
 @section('content')
     <div class="content">
@@ -40,7 +40,8 @@
                                         <td>@if ($demandePaiement->rejete=="non") Non @elseif  ($demandePaiement->rejete == "oui") Oui @endif</td>
                                         <td>@if ($demandePaiement->paye=="non") Non @elseif  ($demandePaiement->paye == "oui") Oui @endif</td>
                                         <td>@if ($demandePaiement->paye=="non") <a href="{{ route('payerDemandePaiement', $demandePaiement->id) }}" class="btn btn-default">
-                            Payer</a> @endif</td>
+                            Payer</a> @elseif  ($demandePaiement->paye == "oui") <a href="{{ route('imprimerBulletin', $demandePaiement->id) }}" class="btn btn-default">
+                            Imprimer bulletin</a>  @endif</td>
                                         
                                     </tr>
                                     @endforeach

@@ -5,6 +5,7 @@ use App\Models\Employe;
 use Illuminate\Http\Request;
 use App\Models\Pointage;
 use DB;
+use PDF;
 
 class ComptableController extends Controller
 {
@@ -30,7 +31,6 @@ class ComptableController extends Controller
       {
         $pointages = Pointage::where('matricule',''.$matricule.'')->get();
 
-
         return view('comptable.detailsEmploye', compact('pointages'));
         
         
@@ -48,6 +48,19 @@ class ComptableController extends Controller
           return view('comptable.listeDemandesPaiements', compact('demandePaiements'))->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
       }
 
+      public function listePaiementsValides()
+      {
+        // $demandePaiements = DemandePaiement::all();
+  
+        $demandePaiements = DB::table('demande_paiements')
+          ->join('employes', 'employes.matricule', '=', 'demande_paiements.matricule')
+          ->where('demande_paiements.paye','oui')
+          ->select('employes.nom_prenoms', 'demande_paiements.*')
+          ->get();
+          
+          return view('comptable.listePaiementsValides', compact('demandePaiements'))->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
+      }
+
       public function validerDemandePaiement($id)
       {
 
@@ -60,6 +73,24 @@ class ComptableController extends Controller
         // return view('comptable.detailsEmploye', compact('pointages'));
         
         
+      }
+
+      public function imprimerBulletin($id)
+      {
+        // retreive all records from db
+      $datas = DB::table('demande_paiements')->join('employes', 'employes.matricule', '=', 'demande_paiements.matricule')
+      ->where('demande_paiements.id',$id)
+      ->select('employes.*', 'demande_paiements.*')
+      ->get();
+      // return view('comptable.bulletin', compact('datas'));
+
+      // share datas to view
+      view()->share('demande_paiement',$datas);
+      $pdf = PDF::loadView('comptable.bulletin', compact('datas'));
+
+      // download PDF file with download method
+      // return $pdf->download('pdf_file.pdf');
+      return $pdf->stream();
       }
 
 }

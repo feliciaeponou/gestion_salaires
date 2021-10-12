@@ -23,8 +23,8 @@ Tip 2: you can also add an image using data-image tag
                     <p>{{ __("Demandes de paiement") }}</p>
                 </a>
             </li>
-            <li class="nav-item @if($activePage == 'volumes_horaires') active @endif">
-                <a class="nav-link" href="/">
+            <li class="nav-item @if($activePage == 'paiementsValides') active @endif">
+                <a class="nav-link" href="{{route('listePaiementsValides')}}">
                     <i class="nc-icon nc-check-2"></i>
                     <p>{{ __("Paiements validés") }}</p>
                 </a>

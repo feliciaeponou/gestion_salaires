@@ -11,14 +11,14 @@ Tip 2: you can also add an image using data-image tag
             </a>
         </div>
         <ul class="nav">
-            <li class="nav-item @if($activePage == 'dashboard') active @endif">
-                <a class="nav-link" href="{{route('dashboard')}}">
-                    <i class="nc-icon nc-chart-pie-35"></i>
-                    <p>{{ __("Dashboard") }}</p>
+            <li class="nav-item @if($activePage == 'liste_users') active @endif">
+                <a class="nav-link" href="{{route('admin_dashboard')}}">
+                    <!-- <i class="nc-icon nc-chart-pie-35"></i> -->
+                    <p>{{ __("Liste des Utilisateurs") }}</p>
                 </a>
             </li>
            
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#laravelExamples" @if($activeButton =='laravel') aria-expanded="true" @endif>
                     <i>
                         <img src="{{ asset('light-bootstrap/img/laravel.svg') }}" style="width:25px">
@@ -81,7 +81,7 @@ Tip 2: you can also add an image using data-image tag
                     <i class="nc-icon nc-alien-33"></i>
                     <p>{{ __("Upgrade to PRO") }}</p>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>

@@ -30,8 +30,8 @@ class RHController extends Controller
 
       public function detailsEmployerh($matricule)
       {
-        $pointages = Pointage::where('matricule',''.$matricule.'')->get();
-        return view('rh.detailsEmploye', compact('pointages'));
+        $employes = Employe::where('matricule',''.$matricule.'')->get();
+        return view('rh.detailsEmploye', compact('employes'));
         
       }
       public function nouvelEmploye()
@@ -87,6 +87,20 @@ class RHController extends Controller
         return view('rh.index', compact('employes'))->withStatus(__('Nouvel employé ajouté'));
         
       }
+
+      public function editInfosEmploye(Request $request)
+      {
+
+        DB::table('employes')->where('matricule',$request->matricule)->update(request()->except(['_token','_method']));
+        
+
+        return back()->withStatus(__('Informations modifiées avec succès'));
+
+        // return view('comptable.detailsEmploye', compact('pointages'));
+        
+        
+      }
+
 
 
 }

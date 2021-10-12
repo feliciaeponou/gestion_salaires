@@ -20,107 +20,17 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="nav navbar-nav mr-auto">
-                <!-- <li class="nav-item">
-                    <a href="#" class="btn btn-default" data-toggle="dropdown"> Ajouter un employé
-                         <i class="nc-icon nc-palette"></i>
-                        <span class="d-lg-none">{{ __('Nouvel employé') }}</span> 
-                    </a>
-                </li> -->
-
+               
             </ul>
             <ul class="navbar-nav   d-flex align-items-center">
 
-            <!-- <form action="{{ route('searchEmployeComptable') }}" method="POST" role="search">
-                {{ csrf_field() }}
-                <div class="input-group">
-                    <input type="text" class="d-flex form-control" name="q" style="width: 300px; height : 49px;  margin-top : 15px"
-                        placeholder="Rechercher des employés"> <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default">
-                            <span class="nc-icon nc-zoom-split"></i></span>
-</button>
-                    </span>
-                </div>
-            </form> -->
-
-
-         
-                
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="no-icon">{{ __('Dropdown') }}</span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">{{ __('Action') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Another action') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Something') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Something else here') }}</a>
-                        <div class="divider"></div>
-                        <a class="dropdown-item" href="#">{{ __('Separated link') }}</a>
-                    </div>
-                </li> -->
+            
               
             </ul>
         </div>
     </div>
 </nav>
 
-
-
-
-                            <!-- <p class="card-category">Here is a subtitle for this table</p> -->
-                        </div>
-                        <div class="card-body  table-responsive">
-                        @if(isset($details))
-                            <p> Résultats de recherche pour <b> {{ $query }} </b> </p>
-                            
-                        <table class="table table-hover table-striped">
-                                <thead>
-                                    <th>Matricule</th>
-                                    <th>Nom et Prénom(s)</th>
-                                    <th>Salaire / H</th>
-                                    <th>Volume horaire</th>
-                                </thead>
-                            <tbody>
-                                @foreach($details as $employe)
-                                <tr>
-                                        <td>{{ $employe->matricule }}</td>
-                                        <td>{{ $employe->nom_prenoms }}</td>
-                                        <td>{{ $employe->salaire_par_heure }}</td>
-                                        <td>{{ $employe->volume_horaire }}</td>
-                                        <td><a href="{{ route('detailsEmployeComptable', $employe->matricule) }}" class="btn btn-default">
-                            <span class="nc-icon nc-stre-right"></i></span></a></td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table> 
-                        
-                        @elseif  (isset($message))
-
-                        <table class="table table-hover table-striped">
-                                <thead>
-                                    <th>Matricule</th>
-                                    <th>Nom</th>
-                                    <th>Prénom(s)</th>
-                                    <th>Service</th>
-                                    <th>Catégorie</th>
-                                </thead>
-                                
-                                <tbody>
-        
-                                    <!-- <tr> -->
-                                        <p>Aucune correspondance trouvée</p>
-                                        
-                                    <!-- </tr> -->
-
-                                    
-</tbody>
-</table>
-
-
-
-                        @else
-
-                        
 
 
                             <table id="example" class="table table-hover table-striped">
@@ -140,7 +50,6 @@
                                         <td>{{ $employe->service }}</td>
                                         <td>{{ $employe->categorie }}</td>
                                     </tr>
-                                    @endforeach
 
                                     
 </tbody>

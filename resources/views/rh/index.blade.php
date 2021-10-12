@@ -70,58 +70,6 @@
                         <div class="card-body  table-responsive">
                         @include('alerts.success')
                         
-                        @if(isset($details))
-                            <p> Résultats de recherche pour <b> {{ $query }} </b> </p>
-                            
-                        <table class="table table-hover table-striped">
-                                <thead>
-                                    <th>Matricule</th>
-                                    <th>Nom et Prénom(s)</th>
-                                    <th>Salaire / H</th>
-                                    <th>Volume horaire</th>
-                                </thead>
-                            <tbody>
-                                @foreach($details as $employe)
-                                <tr>
-                                        <td>{{ $employe->matricule }}</td>
-                                        <td>{{ $employe->nom_prenoms }}</td>
-                                        <td>{{ $employe->salaire_par_heure }}</td>
-                                        <td>{{ $employe->volume_horaire }}</td>
-                                        <!-- <td><a href="{{ route('detailsEmployeComptable', $employe->matricule) }}" class="btn btn-default">
-                            <span class="nc-icon nc-stre-right"></i></span></a></td> -->
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table> 
-                        
-                        @elseif  (isset($message))
-
-                        <table class="table table-hover table-striped">
-                                <thead>
-                                    <th>Matricule</th>
-                                    <th>Nom</th>
-                                    <th>Prénom(s)</th>
-                                    <th>Service</th>
-                                    <th>Catégorie</th>
-                                </thead>
-                                
-                                <tbody>
-        
-                                    <!-- <tr> -->
-                                        <p>Aucune correspondance trouvée</p>
-                                        
-                                    <!-- </tr> -->
-
-                                    
-</tbody>
-</table>
-
-
-
-                        @else
-
-                        
-
 
                             <table class="table table-hover table-striped">
                                 <thead>
@@ -139,15 +87,14 @@
                                         <td>{{ $employe->nom_prenoms }}</td>
                                         <td>{{ $employe->service }}</td>
                                         <td>{{ $employe->categorie }}</td>
-                                        <!-- <td><a href="{{ route('detailsEmployeComptable', $employe->matricule) }}" class="btn btn-default">
-                            <span class="nc-icon nc-stre-right"></i></span></a></td> -->
+                                        <td><a href="{{ route('detailsEmployerh', $employe->matricule) }}" class="btn btn-default">
+                            <span class="nc-icon nc-stre-right"></i></span></a></td>
                                     </tr>
                                     @endforeach
 
                                     
 </tbody>
 </table>
-@endif
 
 </div>
                                    
