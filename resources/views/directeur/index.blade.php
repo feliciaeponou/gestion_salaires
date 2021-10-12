@@ -50,6 +50,7 @@
                                         <td>{{ $employe->service }}</td>
                                         <td>{{ $employe->categorie }}</td>
                                     </tr>
+                                    @endforeach
 
                                     
 </tbody>
