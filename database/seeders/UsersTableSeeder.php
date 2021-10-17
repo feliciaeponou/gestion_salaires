@@ -92,6 +92,36 @@ class UsersTableSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ],
+        [
+            'name' => 'Oulai Bernard',
+            'email' => 'oulaibernard@gmail.com',
+            'email_verified_at' => now(),
+            'role' => 'employe',
+            'password' => Hash::make('oulaibernard'),
+            'matricule' => '0123',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name' => 'Koffi Amenan',
+            'email' => 'amenankoffi@gmail.com',
+            'email_verified_at' => now(),
+            'role' => 'employe',
+            'password' => Hash::make('amenankoffi'),
+            'matricule' => '1011',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'name' => 'Djirabou Leonard',
+            'email' => 'leonarddjirabou@gmail.com',
+            'email_verified_at' => now(),
+            'role' => 'employe',
+            'password' => Hash::make('leonarddjirabou'),
+            'matricule' => '1516',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
        
     ];
 

@@ -87,10 +87,15 @@
                                     </div>
 
                                    <input type="hidden" name="employe_id" value="{{$employe -> id}}">
-                                    
+                                   @if ($employe -> suspendu == "non")
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-default mt-4">{{ __('Enregistrer') }}</button>
                                     </div>
+                                    @else
+
+                                    <h2 style="color : red">Employé suspendu</h2>
+
+                                    @endif
                                 </div>
                             </form>
 

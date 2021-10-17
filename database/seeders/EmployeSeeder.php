@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Employe;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class EmployeSeeder extends Seeder
             'matricule' => '0123',
             'nom_prenoms' => 'Oulai Bernard',
             'date_naissance' => '27/03/1980',
-            'genre' => 'H',
+            'genre' => 'Homme',
             'service' => 'Recrutement',
             'categorie' => 'RH',
             'salaire_par_heure' => '5000',
@@ -25,13 +26,14 @@ class EmployeSeeder extends Seeder
             'volume_horaire' => '0',
             'photo' => 'photophoto',
             'email' => 'oulaibernard@entreprise.com',
-            'password' => 'oulaibernard',
+            'password' => 'password',
+            'suspendu' => 'non',
         ],
         [
             'matricule' => '1011',
             'nom_prenoms' => 'Koffi Amenan',
             'date_naissance' => '16/06/1992',
-            'genre' => 'F',
+            'genre' => 'Femme',
             'service' => 'Marketing',
             'categorie' => 'Marketing et communication',
             'salaire_par_heure' => '3000',
@@ -39,13 +41,14 @@ class EmployeSeeder extends Seeder
             'volume_horaire' => '0',
             'photo' => 'photophoto',
             'email' => 'amenankoffi@entreprise.com',
-            'password' => 'amenankoffi',
+            'password' => 'password',
+            'suspendu' => 'non',
         ],
         [
-            'matricule' => '1516171819',
+            'matricule' => '1516',
             'nom_prenoms' => 'Djirabou Leonard',
             'date_naissance' => '16/02/1995',
-            'genre' => 'H',
+            'genre' => 'Homme',
             'service' => 'Logistique',
             'categorie' => 'Departements achats et logistique',
             'salaire_par_heure' => '8000',
@@ -53,7 +56,8 @@ class EmployeSeeder extends Seeder
             'volume_horaire' => '0',
             'photo' => 'photophoto',
             'email' => 'leonarddjirabou@entreprise.com',
-            'password' => 'leonarddjirabou',
+            'password' => 'password',
+            'suspendu' => 'non',
         ]
 
         ];

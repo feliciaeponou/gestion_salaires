@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use DB;
 use App\Models\User;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RHController extends Controller
 {
@@ -95,6 +96,44 @@ class RHController extends Controller
         
 
         return back()->withStatus(__('Informations modifiées avec succès'));
+
+        // return view('comptable.detailsEmploye', compact('pointages'));
+        
+        
+      }
+
+      public function suspendreEmploye(Request $request)
+      {
+
+        DB::table('employes')->where('matricule',$request->matricule)->update(['suspendu'=>'oui']);
+        
+
+        return back()->with('toast_success', 'Employé suspendu');
+        // Alert::success('Suspension employé', 'Employé suspendu avec succès');
+
+        // return view('comptable.detailsEmploye', compact('pointages'));
+        
+        
+      }
+      public function retablirEmploye(Request $request)
+      {
+
+        DB::table('employes')->where('matricule',$request->matricule)->update(['suspendu'=>'non']);
+
+        return back()->with('toast_success', 'Employé rétabli');
+
+        // return view('comptable.detailsEmploye', compact('pointages'));
+        
+        
+      }
+
+      public function suppressionEmploye($matricule)
+      {
+
+        DB::table('employes')->where('matricule',$matricule)->delete();
+        
+
+        return back()->withStatus(__('Employé supprimé avec succès'));
 
         // return view('comptable.detailsEmploye', compact('pointages'));
         

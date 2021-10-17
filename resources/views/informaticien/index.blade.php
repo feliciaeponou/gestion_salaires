@@ -70,62 +70,14 @@
                             <!-- <p class="card-category">Here is a subtitle for this table</p> -->
                         </div>
                         <div class="card-body  table-responsive">
-                        @if(isset($details))
-                            <p> Résultats de recherche pour <b> {{ $query }} </b> </p>
-                            
-                        <table id="example" class="table table-hover table-striped">
-                                <thead>
-                                    <th>Matricule</th>
-                                    <th>Nom et Prénom(s)</th>
-                                    <th>Salaire / H</th>
-                                    <th>Volume horaire</th>
-                                </thead>
-                            <tbody>
-                                @foreach($details as $employe)
-                                <tr>
-                                        <td>{{ $employe->matricule }}</td>
-                                        <td>{{ $employe->nom_prenoms }}</td>
-                                        <td>{{ $employe->salaire_par_heure }}</td>
-                                        <td>{{ $employe->volume_horaire }}</td>
-                                        <td>
-                        <a href="{{ route('nouveauPointage', $employe->matricule) }}" class="btn btn-default">
-                            <span class="nc-icon nc-simple-add"></i></span></a>
-                </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table> 
                         
-                        @elseif  (isset($message))
-
-                        <table id="example" class="table table-hover table-striped">
-                                <thead>
-                                    <th>Matricule</th>
-                                    <th>Nom</th>
-                                    <th>Prénom(s)</th>
-                                    <th>Service</th>
-                                    <th>Catégorie</th>
-                                </thead>
-                                
-                                <tbody>
-        
-                                    <!-- <tr> -->
-                                        <p>Aucune correspondance trouvée</p>
-                                        
-                                    <!-- </tr> -->
-                                    
-                                </tbody>
-                                </table>
-
-                        @else
-
-                            <table id="example1" class="table table-hover table-striped">
+                            <table id="example" class="table table-hover table-striped">
                                 <thead>
                                     <th>Matricule</th>
                                     <th>Nom et Prénom(s)</th>
                                     <th>Service</th>
                                     <th>Catégorie</th>
-                                    <th></th>
+                                    <th></th> 
                                 </thead>
                                 
                                 <tbody>
@@ -136,15 +88,22 @@
                                         <td>{{ $employe->nom_prenoms }}</td>
                                         <td>{{ $employe->service }}</td>
                                         <td>{{ $employe->categorie }}</td>
-                                        <td> <a href="{{ route('nouveauPointage', $employe->matricule) }}" class="btn btn-default">
-                            <span class="nc-icon nc-simple-add"></i></span></a></td>
+                                        <td>   @if ($employe -> suspendu == "non")
+                                             <a href="{{ route('nouveauPointage', $employe->matricule) }}" class="btn btn-default">
+                            <span class="nc-icon nc-simple-add"></i></span></a>
+                            @else
+
+                            <span style="color : red" class="fas fa-ban"></i></span>
+
+                            @endif
+                        
+                        </td>
                                     </tr>
                                     @endforeach
 
                                     
 </tbody>
 </table>
-@endif
 
 </div>
                                    

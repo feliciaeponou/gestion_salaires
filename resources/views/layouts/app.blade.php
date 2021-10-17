@@ -25,6 +25,9 @@
         <!--     Fonts and icons     -->
         <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" /> -->
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" /> -->
+        <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">
+        <!-- <link rel="stylesheet" href="{{asset('css/solid.min.css')}}"> -->
+        <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
         <!-- CSS Files -->
         <link href="{{ asset('light-bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('light-bootstrap/css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
@@ -45,6 +48,9 @@
     <script src="{{ asset('js/flatpicker.min.js') }}"></script>
     <script src="{{ asset('js/fr.js') }}"></script>
     <script src="{{ asset('js/datatables.min.js') }}"></script>
+    <link rel="stylesheet" href="{{asset('js/fontawesome.min.js')}}">
+        <!-- <link rel="stylesheet" href="{{asset('js/solid.min.js')}}"> -->
+        <link rel="stylesheet" href="{{asset('js/all.min.js')}}">
 
     <script type="text/javascript">
     $( function() {

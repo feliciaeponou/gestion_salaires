@@ -110,6 +110,9 @@ Route::any('enregistrerEmploye', 'App\Http\Controllers\RHController@enregistrerE
 Route::any('searchEmployeRH', 'App\Http\Controllers\RHController@searchEmployeRH')->middleware('role:rh')->name('searchEmployeRH');
 Route::get('/detailsEmployerh/{matricule}',[App\Http\Controllers\RHController::class, 'detailsEmployerh'])->middleware('role:rh')->name('detailsEmployerh');
 Route::any('editInfosEmploye', 'App\Http\Controllers\RHController@editInfosEmploye')->middleware('role:rh')->name('editInfosEmploye');;
+Route::any('suppressionEmploye/{matricule}', 'App\Http\Controllers\RHController@suppressionEmploye')->middleware('role:rh')->name('suppressionEmploye');;
+Route::any('suspendreEmploye/{matricule}', 'App\Http\Controllers\RHController@suspendreEmploye')->middleware('role:rh')->name('suspendreEmploye');;
+Route::any('retablirEmploye/{matricule}', 'App\Http\Controllers\RHController@retablirEmploye')->middleware('role:rh')->name('retablirEmploye');;
 
 
 
