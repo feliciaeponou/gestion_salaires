@@ -76,12 +76,22 @@ class SecretaireComptableController extends Controller
 
           ]);
 
+          $periodeExploded = explode(" ", $request->periode);
+    
+          $dateDebut = $periodeExploded[0];
+          $dateFin = $periodeExploded[2];
+
+
+          DB::table('pointages')->whereBetween('dateSeance',array($dateDebut,$dateFin))->where('matricule', ''.$request->matricule.'')->update(['payee'=>'oui']);
+
+
+
       $demandePaiements = DB::table('demande_paiements')
       ->join('employes', 'employes.matricule', '=', 'demande_paiements.matricule')
       ->select('employes.nom_prenoms', 'demande_paiements.*')
       ->get();
       
-      return view('secretaire_comptable.listeDemandesPaiements', compact('demandePaiements'))->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
+      return view('secretaire_comptable.listeDemandesPaiements', compact('demandePaiements'))->with('toast_success', 'Nouvelle demande de paiement ajoutée avec succès ');
   
 
         }
@@ -109,17 +119,17 @@ class SecretaireComptableController extends Controller
       $nbSeances = count($pointages);
       // echo "Nb Seances ".$nbSeances."<br>";
 
-      // if(count($pointages) > 0) {
+      if(count($pointages) > 0) {
 
         $employes = DB::table('employes')->where('matricule', ''.$request->matricule.'')->get();
         $periode = $request->periode ;
 
         return view('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withDetails($pointages)->withPeriodes($periode);
 
-      // } else {
-      //   $employes = DB::table('employes')->where('matricule', ''.$request->matricule.'')->get();
-      //   return view ('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withMessage('Aucune correspondance trouvée !')->withErrors(__('Aucune séance enregistrée durant cette période'));;
-      // }
+      } else {
+        $employes = DB::table('employes')->where('matricule', ''.$request->matricule.'')->get();
+        return view ('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withMessage('Aucune correspondance trouvée !')->withErrors(__('Aucune séance non payée durant cette période'));;
+      }
      
         
       } else {
@@ -140,7 +150,7 @@ class SecretaireComptableController extends Controller
         ->select('employes.nom_prenoms', 'demande_paiements.*')
         ->get();
         
-        return view('secretaire_comptable.listeDemandesPaiements', compact('demandePaiements'))->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
+        return view('secretaire_comptable.listeDemandesPaiements', compact('demandePaiements'))->with('toast_success', 'Nouvelle demande de paiement ajoutée avec succès ');
     }
 
 }
