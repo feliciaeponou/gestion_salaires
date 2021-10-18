@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'nouveauPointage', 'title' => 'Gestion Des Salaires | Nouveau pointage', 'navName' => 'Nouveau pointage', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'nouveauPointage', 'title' => 'Gestion Des Salaires | Nouvelle demande de paiement', 'navName' => 'Nouvelle demande de paiement', 'activeButton' => 'laravel'])
 
 @section('content')
     <div class="content">
@@ -167,7 +167,7 @@
                 @method('patch')
 
                 
-                @include('alerts.success')
+                @include('sweetalert::alert')
                 @include('alerts.error_self_update', ['key' => 'not_allow_profile'])
 
                 <div class="pl-lg-4">

@@ -28,7 +28,7 @@
 
             </ul>
             <ul class="navbar-nav   d-flex align-items-center"> 
-            <form action="{{ route('searchEmployeRH') }}" method="POST" role="search">
+            <!-- <form action="{{ route('searchEmployeRH') }}" method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group">
                     <input type="text" class="d-flex form-control" name="q" style="width: 300px; height : 49px;  margin-top : 15px"
@@ -38,7 +38,7 @@
 </button>
                     </span>
                 </div>
-            </form>
+            </form> -->
 
 
          
@@ -68,15 +68,16 @@
                             <!-- <p class="card-category">Here is a subtitle for this table</p> -->
                         </div>
                         <div class="card-body  table-responsive">
-                        @include('alerts.success')
+                        @include('sweetalert::alert')
                         
 
-                            <table class="table table-hover table-striped">
+                            <table id="example" class="table table-hover table-striped">
                                 <thead>
                                     <th>Matricule</th>
                                     <th>Nom et Prénom(s)</th>
                                     <th>Service</th>
                                     <th>Catégorie</th>
+                                    <th></th>
                                 </thead>
                                 
                                 <tbody>

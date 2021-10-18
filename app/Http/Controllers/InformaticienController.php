@@ -6,6 +6,7 @@ use App\Models\Pointage;
 // use Request;
 use Illuminate\Http\Request;
 use DB;
+use Alert;
 class InformaticienController extends Controller
 {
     public function __construct() {
@@ -81,6 +82,6 @@ class InformaticienController extends Controller
 
           // echo "Volume horaire : ". $volumeHoraire;
 
-          return back()->withStatus(__('Nouvelle séance ajoutée avec succès'));
+          return back()->with('toast_success', 'Nouvelle séance ajoutée avec succès ');
       }
 }

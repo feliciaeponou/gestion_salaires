@@ -22,6 +22,7 @@ class Employe extends Model
             //  'photo', 
              'email', 
              'password', 
+             'suspendu'
     ];
 
 

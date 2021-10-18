@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use DB;
+use Alert;
 
 class AdminController extends Controller
 {
@@ -35,7 +36,7 @@ class AdminController extends Controller
         DB::table('users')->where('matricule',$request->matricule)->update(request()->except(['_token','_method']));
         
 
-        return back()->withStatus(__('Informations modifiées avec succès'));
+        return back()->with('toast_success', 'Informations modifiées avec succès');
 
         // return view('comptable.detailsEmploye', compact('pointages'));
         

@@ -10,7 +10,7 @@
                         <div class="card-body  table-responsive">
                       
 
-                        @include('alerts.success')
+                        @include('sweetalert::alert')
                             <table id="example" class="table table-hover table-striped">
                                 <thead>
                                     <th>Matricule</th>

@@ -115,7 +115,7 @@
 
                                 <!-- <h6 class="heading-small text-muted mb-4">{{ __('employe information') }}</h6> -->
                                 
-                                <!-- @include('alerts.success')
+                                <!-- @include('sweetalert::alert')
                                 @include('alerts.error_self_update', ['key' => 'not_allow_profile'])
                              -->
 

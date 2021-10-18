@@ -18,7 +18,7 @@
                                 @csrf
                                 @method('patch')
                                 
-                                @include('alerts.success')
+                                @include('sweetalert::alert')
                                 @include('alerts.error_self_update', ['key' => 'not_allow_profile'])
         
                                 <div class="pl-lg-4">

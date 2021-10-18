@@ -72,6 +72,7 @@ class RHController extends Controller
               'volume_horaire' => $request->volume_horaire,
               'email' => $request->email,
               'password' => Hash::make($request->password) ,
+              'suspendu' => 'non' 
           ]);
           
           $user = User::create([

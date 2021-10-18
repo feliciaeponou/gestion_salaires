@@ -59,7 +59,7 @@
     $("#datepicker").flatpickr(
       {
     dateFormat: "d/m/Y",
-    // minDate: "today",
+    minDate: "today",
     "locale": {
         "firstDayOfWeek": 1, // start week on Monday
         "locale": "fr" 

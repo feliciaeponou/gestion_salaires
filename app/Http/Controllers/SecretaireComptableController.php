@@ -93,27 +93,33 @@ class SecretaireComptableController extends Controller
       if (isset( $request->periode )) {
       
       $periodeExploded = explode(" ", $request->periode);
+    
       $dateDebut = $periodeExploded[0];
       $dateFin = $periodeExploded[2];
 
+      // echo "Date debut ". strtotime($dateDebut)."<br>"; 
+      // echo "Date fin ".strtotime($dateFin);
 
-      $pointages = Pointage::whereBetween('dateSeance',array(strtotime($dateDebut),strtotime($dateFin)))->where('matricule',$request->matricule )->where('payee','non' )->get();
+    
+
+      $pointages = Pointage::whereBetween('dateSeance',array($dateDebut,$dateFin))->where('matricule',$request->matricule )->where('payee','non' )->get();
 
 // FIXME ne calcule pas bien le nombre de seances quand on selectionne des periodes differentes
 
       $nbSeances = count($pointages);
+      // echo "Nb Seances ".$nbSeances."<br>";
 
-      if(count($pointages) > 0) {
+      // if(count($pointages) > 0) {
 
         $employes = DB::table('employes')->where('matricule', ''.$request->matricule.'')->get();
         $periode = $request->periode ;
 
         return view('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withDetails($pointages)->withPeriodes($periode);
 
-      } else {
-        $employes = DB::table('employes')->where('matricule', ''.$request->matricule.'')->get();
-        return view ('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withMessage('Aucune correspondance trouvée !')->withErrors(__('Aucune séance enregistrée durant cette période'));;
-      }
+      // } else {
+      //   $employes = DB::table('employes')->where('matricule', ''.$request->matricule.'')->get();
+      //   return view ('secretaire_comptable.nouvelleDemandePaiement', compact('employes'))->withMessage('Aucune correspondance trouvée !')->withErrors(__('Aucune séance enregistrée durant cette période'));;
+      // }
      
         
       } else {
