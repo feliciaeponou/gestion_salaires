@@ -86,7 +86,7 @@ class RHController extends Controller
         ]);
 
         $employes = Employe::all();
-        return view('rh.index', compact('employes'))->withStatus(__('Nouvel employé ajouté'));
+        return view('rh.index', compact('employes'))->with('toast_success', 'Nouvel employé ajouté');
         
       }
 
@@ -96,7 +96,7 @@ class RHController extends Controller
         DB::table('employes')->where('matricule',$request->matricule)->update(request()->except(['_token','_method']));
         
 
-        return back()->withStatus(__('Informations modifiées avec succès'));
+        return back()->with('toast_success', 'Informations modifiées avec succès');
 
         // return view('comptable.detailsEmploye', compact('pointages'));
         
@@ -134,7 +134,7 @@ class RHController extends Controller
         DB::table('employes')->where('matricule',$matricule)->delete();
         
 
-        return back()->withStatus(__('Employé supprimé avec succès'));
+        return back()->with('toast_success', 'Employé supprimé avec succès');
 
         // return view('comptable.detailsEmploye', compact('pointages'));
         

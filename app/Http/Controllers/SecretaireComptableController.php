@@ -9,6 +9,7 @@ use App\Models\Pointage;
 use App\Models\DemandePaiement;
 use DB;
 use Log;
+use Alert;
 
 class SecretaireComptableController extends Controller
 {

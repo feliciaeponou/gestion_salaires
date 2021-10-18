@@ -24,7 +24,7 @@ class AdminController extends Controller
         $users = DB::table('users')->where('matricule',$matricule)->get();
         return view('admin.detailsUser', compact('users'));
         
-        return back()->withStatus(__('Demande de paiement payée avec succès'));
+        return back()->with('toast_success', 'Demande de paiement payée avec succès');
 
         // return view('comptable.detailsEmploye', compact('pointages'));
         

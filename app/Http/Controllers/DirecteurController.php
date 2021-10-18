@@ -7,6 +7,7 @@ use DB;
 use App\Models\Employe;
 use App\Models\DemandePaiement;
 use PDF;
+use Alert;
 class DirecteurController extends Controller
 {
     public function __construct() {
@@ -36,7 +37,7 @@ class DirecteurController extends Controller
         DB::table('demande_paiements')->where('id',$id)->update(['paye'=>'oui']);
         
 
-        return back()->withStatus(__('Demande de paiement payée avec succès'));
+        return back()->with('toast_success', 'Demande de paiement payée avec succès');
 
 
         // return view('comptable.detailsEmploye', compact('pointages'));
@@ -49,7 +50,7 @@ class DirecteurController extends Controller
         DB::table('demande_paiements')->where('id',$id)->update(['valide'=>'oui']);
         
 
-        return back()->withStatus(__('Demande de paiement validée avec succès'));
+        return back()->with('toast_success', 'Demande de paiement validée avec succès');
 
 
         // return view('comptable.detailsEmploye', compact('pointages'));

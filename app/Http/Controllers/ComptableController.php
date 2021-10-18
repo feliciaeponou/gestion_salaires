@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pointage;
 use DB;
 use PDF;
+use Alert;
 
 class ComptableController extends Controller
 {
@@ -45,7 +46,7 @@ class ComptableController extends Controller
           ->select('employes.nom_prenoms', 'demande_paiements.*')
           ->get();
           
-          return view('comptable.listeDemandesPaiements', compact('demandePaiements'))->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
+          return view('comptable.listeDemandesPaiements', compact('demandePaiements'))->with('toast_success', 'Nouvelle demande de paiement ajoutée avec succès');
       }
 
       public function listePaiementsValides()
@@ -58,7 +59,7 @@ class ComptableController extends Controller
           ->select('employes.nom_prenoms', 'demande_paiements.*')
           ->get();
           
-          return view('comptable.listePaiementsValides', compact('demandePaiements'))->withStatus(__('Nouvelle demande de paiement ajoutée avec succès'));
+          return view('comptable.listePaiementsValides', compact('demandePaiements'))->with('toast_success', 'Nouvelle demande de paiement ajoutée avec succès');
       }
 
       public function validerDemandePaiement($id)
@@ -67,7 +68,7 @@ class ComptableController extends Controller
         DB::table('demande_paiements')->where('id',$id)->update(['valide'=>'oui']);
         
 
-        return back()->withStatus(__('Demande de paiement validée avec succès'));
+        return back()->with('toast_success', 'Demande de paiement validée avec succès');
 
 
         // return view('comptable.detailsEmploye', compact('pointages'));
