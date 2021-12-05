@@ -1,46 +1,72 @@
-
+<link href="{{ public_path('light-bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card strpied-tabled-with-hover">
+                    <h1>Bulletin de salaire </h1><br>
 
-                    <div class="card-header ">
-                            <h1 class="card-title">Bulletin de paiement </h1>
-</div>
-                       
-                        <div class="card-body  table-responsive">
+                    <table  class="table table-bordered table-striped " style="width : 50%">
+                               
+                                        <tr>
+                                            <td>Matricule</td>
+                                            <td>Nom & Prénom(s)</td>
+                                            <td>Categorie</td>
+                                            <td>Nombre Séances</td>
+                                        </tr>
+                                        
+                                        @foreach ($datas1 as $data)
+                                        <tr>
+                                            <td>{{ $data->matricule }}</td>
+                                            <td>{{ $data->nom_prenoms }}</td>
+                                            <td>{{ $data->categorie }}</td>
+                                            <td>{{ $data->nbSeances }}</td>
+                                        </tr>
+                                        @endforeach
+                                       
+                                       
+                                   
 
-                      
+                                            <!-- TODO Modifier le bulletin  -->
+                                            
+                    </table>
 
-                            <table id="example" class="table table-hover table-striped">
-                                <thead>
-                                    <th>Matricule</th>
-                                    <th>Nom & Prénom(s)</th>
-                                    <th>Categorie</th>
-                                    <th>Nombre Séances</th>
-                                    
-                                </thead>
-                                
-                                <tbody>
+                    <table  class="table table-bordered table-striped " style="width : 100%">
+                               
 
-                                @foreach ($datas as $data)
-        
-        <tr>
-            <td>{{ $data->matricule }}</td>
-            <td>{{ $data->nom_prenoms }}</td>
-            <td>{{ $data->categorie }}</td>
-            <td>{{ $data->nbSeances }}</td>
-            <td></td>
-        </tr>
-        @endforeach
+                                        <tr>
+                                            <td>Date Seance</td>
+                                            <td>Debut Seance</td>
+                                            <td>Debut Pause</td>
+                                            <td>Fin Pause</td>
+                                            <td>Fin Seance</td>
+                                            <td>Volume Horaire</td>
+                                            <td>Montant</td>
+                                        </tr>
+                                        
+                                        @foreach ($datas as $data)
+                                            <tr>
+                                                <td>{{ $data->dateSeance }}</td>
+                                                <td>{{ $data->debutSeance }}</td>
+                                                <td>{{ $data->debutPause }}</td>
+                                                <td>{{ $data->finPause }}</td>
+                                                <td>{{ $data->finSeance }}</td>
+                                                <td>{{ $data->volumeHoraire }}</td>
+                                                <td>{{ $data->volumeHoraire * $data->salaire_par_heure }} Fr </td>
+                                            </tr>
+                                        @endforeach
 
-        <!-- TODO Modifier le bulletin  -->
+                                        <tr>
+                                            <td colspan="6">NET A PAYER</td>
+                                            <td>{{ $data->volumeHoraire * $data->salaire_par_heure * $data->nbSeances  }} Fr</td>
 
-                                
-                                    
-</tbody>
-</table>
+                                        </tr>
 
-</div>
-                
+                                            <!-- TODO Modifier le bulletin  -->
+                                            
+                    </table>
+                </div>
+            </div>
+        </div>
+                    
+    </div>   
+</div>       

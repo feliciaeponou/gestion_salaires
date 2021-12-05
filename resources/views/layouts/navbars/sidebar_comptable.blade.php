@@ -30,7 +30,7 @@ Tip 2: you can also add an image using data-image tag
                 </a>
             </li>
             <li class="nav-item @if($activePage == 'paiements') active @endif">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="{{route('statistiques')}}">
                     <i class="nc-icon nc-chart-bar-32"></i>
                     <p>{{ __("Statistiques") }}</p>
                 </a>

@@ -79,7 +79,16 @@ class ComptableController extends Controller
       public function imprimerBulletin($id)
       {
         // retreive all records from db
-      $datas = DB::table('demande_paiements')->join('employes', 'employes.matricule', '=', 'demande_paiements.matricule')
+      $datas = DB::table('demande_paiements')
+      ->join('employes', 'employes.matricule', '=', 'demande_paiements.matricule')
+      ->join('pointages', 'employes.matricule', '=', 'pointages.matricule')
+      ->where('demande_paiements.id',$id)
+      ->whereBetween('dateSeance',['01/09/2021','14/09/2021'])
+      ->select('employes.*', 'demande_paiements.*', 'pointages.*')
+      ->get();
+
+      $datas1 = DB::table('demande_paiements')
+      ->join('employes', 'employes.matricule', '=', 'demande_paiements.matricule')
       ->where('demande_paiements.id',$id)
       ->select('employes.*', 'demande_paiements.*')
       ->get();
@@ -87,11 +96,21 @@ class ComptableController extends Controller
 
       // share datas to view
       view()->share('demande_paiement',$datas);
-      $pdf = PDF::loadView('comptable.bulletin', compact('datas'));
+      $pdf = PDF::loadView('comptable.bulletin', compact('datas', 'datas1'));
 
       // download PDF file with download method
       // return $pdf->download('pdf_file.pdf');
       return $pdf->stream();
+      }
+
+      public function statistiques() {
+        
+        return view('comptable.statistiques');
+
+
+        //  NOMBRE D'EMPLOYES QUI NE REMPLISSENT PAS LES CONDITIONS 
+
+
       }
 
 }

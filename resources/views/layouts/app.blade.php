@@ -1,17 +1,3 @@
-<!-- 
-=========================================================
- Light Bootstrap Dashboard - v2.0.1
-=========================================================
-
- Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard
- Copyright 2019 Creative Tim (https://www.creative-tim.com) & Updivision (https://www.updivision.com)
- Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard/blob/master/LICENSE)
-
- Coded by Creative Tim & Updivision
-
-=========================================================
-
- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  -->
 <!DOCTYPE html>
 
 <html lang="en">
@@ -34,8 +20,8 @@
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <!-- <link href="{{ asset('light-bootstrap/css/demo.css') }}" rel="stylesheet" /> -->
 
-      <link rel="stylesheet" href="{{ asset('css/flatpicker.min.css') }}">
-      <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/flatpicker.min.css') }}"/>
+      <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}"/>
 
 
     <script src="{{ asset('light-bootstrap/js/core/jquery.3.2.1.min.js') }}"></script>

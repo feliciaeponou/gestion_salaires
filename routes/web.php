@@ -61,6 +61,7 @@ Route::get('listeDemandesPaiementsComptable', 'App\Http\Controllers\ComptableCon
 Route::get('listePaiementsValides', 'App\Http\Controllers\ComptableController@listePaiementsValides')->middleware('role:comptable')->name('listePaiementsValides');
 Route::get('/validerDemandePaiement/{id}',[App\Http\Controllers\ComptableController::class, 'validerDemandePaiement'])->middleware('role:comptable')->name('validerDemandePaiement');
 Route::get('/imprimerBulletin/{id}',[App\Http\Controllers\ComptableController::class, 'imprimerBulletin'])->middleware('role:comptable')->name('imprimerBulletin');
+Route::get('statisiques', 'App\Http\Controllers\ComptableController@statistiques')->middleware('role:comptable')->name('statistiques');;
 
 
 // ROUTES INFORMATICIEN 
