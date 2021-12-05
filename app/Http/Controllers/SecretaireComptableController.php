@@ -64,9 +64,15 @@ class SecretaireComptableController extends Controller
                 'coutTotal' => ['required', 'string', 'max:255'],
             ]);
 
+            $periodeExploded = explode(" ", $request->periode);
+    
+            $dateDebut = $periodeExploded[0];
+            $dateFin = $periodeExploded[2];
+
           $user = DemandePaiement::create([
             'matricule' => $request->matricule,
-              'periode' => $request->periode,
+              'dateDebut' => $dateDebut,
+              'dateFin' => $dateFin,
               'nbSeances' => $request->nbSeances,
               // 'listeSeances' => $request->listeSeances,
               'volumeHoraireTotal' => $request->volumeHoraireTotal,
@@ -77,10 +83,7 @@ class SecretaireComptableController extends Controller
 
           ]);
 
-          $periodeExploded = explode(" ", $request->periode);
-    
-          $dateDebut = $periodeExploded[0];
-          $dateFin = $periodeExploded[2];
+         
 
 
           DB::table('pointages')->whereBetween('dateSeance',array($dateDebut,$dateFin))->where('matricule', ''.$request->matricule.'')->update(['payee'=>'oui']);

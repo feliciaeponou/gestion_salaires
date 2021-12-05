@@ -16,7 +16,8 @@ class CreateDemandePaiementsTable extends Migration
         Schema::create('demande_paiements', function (Blueprint $table) {
             $table->id();
             $table->string('matricule');
-            $table->string('periode');
+            $table->string('dateDebut');
+            $table->string('dateFin');
             $table->string('nbSeances');
             $table->string('listSeances')->nullable();
             $table->string('volumeHoraireTotal');

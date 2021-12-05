@@ -5,13 +5,14 @@
                 <div class="col-md-12">
                     <h1>Bulletin de salaire </h1><br>
 
-                    <table  class="table table-bordered table-striped " style="width : 50%">
+                    <table  class="table table-bordered table-striped" style="width : 50%">
                                
                                         <tr>
                                             <td>Matricule</td>
                                             <td>Nom & Prénom(s)</td>
                                             <td>Categorie</td>
                                             <td>Nombre Séances</td>
+                                            <td>Période</td>
                                         </tr>
                                         
                                         @foreach ($datas1 as $data)
@@ -20,6 +21,7 @@
                                             <td>{{ $data->nom_prenoms }}</td>
                                             <td>{{ $data->categorie }}</td>
                                             <td>{{ $data->nbSeances }}</td>
+                                            <td></td>
                                         </tr>
                                         @endforeach
                                        

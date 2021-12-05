@@ -15,7 +15,8 @@
                                 <thead>
                                     <th>Matricule</th>
                                     <th>Nom & Prénom(s)</th>
-                                    <th>Periode</th>
+                                    <th>Date Debut</th>
+                                    <th>Date Fin</th>
                                     <th>Nombre Séances</th>
                                     <th>Volume horaire Total</th>
                                     <th>Coût Total</th>
@@ -32,7 +33,8 @@
                                     <tr>
                                         <td>{{ $demandePaiement->matricule }}</td>
                                         <td>{{ $demandePaiement->nom_prenoms }}</td>
-                                        <td>{{ $demandePaiement->periode }}</td>
+                                        <td>{{ $demandePaiement->dateDebut }}</td>
+                                        <td>{{ $demandePaiement->dateFin }}</td>
                                         <td>{{ $demandePaiement->nbSeances }}</td>
                                         <td>{{ $demandePaiement->volumeHoraireTotal }}</td>
                                         <td>{{ $demandePaiement->coutTotal  }} FCFA</td>

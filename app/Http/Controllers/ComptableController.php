@@ -78,12 +78,14 @@ class ComptableController extends Controller
 
       public function imprimerBulletin($id)
       {
-        // retreive all records from db
+        // retrieve all records from db
+        
+          
       $datas = DB::table('demande_paiements')
       ->join('employes', 'employes.matricule', '=', 'demande_paiements.matricule')
       ->join('pointages', 'employes.matricule', '=', 'pointages.matricule')
       ->where('demande_paiements.id',$id)
-      ->whereBetween('dateSeance',['01/09/2021','14/09/2021'])
+      ->whereBetween('pointages.dateSeance',['01/09/2021','14/09/2021'])
       ->select('employes.*', 'demande_paiements.*', 'pointages.*')
       ->get();
 
