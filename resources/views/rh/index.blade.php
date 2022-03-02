@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navigation">
             <ul class="nav navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a href="{{ route('nouvelEmploye')}}" class="btn btn-default" > Ajouter un employé
+                    <a href="{{ route('nouvelEmploye')}}" class="btn btn-warning" > Ajouter un employé
                         <!-- <span class="d-lg-none">{{ __('Nouvel employé') }}</span>  -->
                     </a>
                 </li>

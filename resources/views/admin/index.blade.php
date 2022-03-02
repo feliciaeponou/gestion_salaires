@@ -8,26 +8,26 @@
                     <div class="card strpied-tabled-with-hover">
                         <div class="card-header">
                             <!-- <h4 class="card-title">Liste des utilisateurs</h4> -->
+                           
+                         
 
 
                             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
-    <div class="container-fluid">
-        <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar burger-lines"></span>
-            <span class="navbar-toggler-bar burger-lines"></span>
-            <span class="navbar-toggler-bar burger-lines"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            
-        </div>
-    </div>
-</nav>
-
-
-
-
-                            <!-- <p class="card-category">Here is a subtitle for this table</p> -->
-                        </div>
+                                <div class="container-fluid">
+                                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-bar burger-lines"></span>
+                                        <span class="navbar-toggler-bar burger-lines"></span>
+                                        <span class="navbar-toggler-bar burger-lines"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                                        <a href="#" class="btn btn-warning" data-toggle="dropdown"> Ajouter un employé
+                                            <i class="nc-icon nc-add"></i>
+                                            <span class="d-lg-none">{{ __('Nouvel employé') }}</span> 
+                                        </a>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div> 
                         <div class="card-body  table-responsive">
 
                             <table id="example" class="table table-hover table-striped">

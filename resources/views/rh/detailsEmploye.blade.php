@@ -32,73 +32,45 @@
 
 
                             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
-    <div class="container-fluid">
-        <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar burger-lines"></span>
-            <span class="navbar-toggler-bar burger-lines"></span>
-            <span class="navbar-toggler-bar burger-lines"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item">
-                    
-                <a href="{{ url()->previous() }}" class="btn btn-default">
-                            <span class="nc-icon nc-stre-left"></i></span></a>
-                </li>
+                                <div class="container-fluid">
+                                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-bar burger-lines"></span>
+                                        <span class="navbar-toggler-bar burger-lines"></span>
+                                        <span class="navbar-toggler-bar burger-lines"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                                        <ul class="nav navbar-nav mr-auto">
+                                            <li class="nav-item">
+                                                
+                                            <a href="{{ url()->previous() }}" class="btn btn-default">
+                                                        <span class="nc-icon nc-stre-left"></i></span></a>
+                                            </li>
 
-            </ul>
-            <ul class="navbar-nav   d-flex align-items-center"> 
-                
-            <!-- <form action="{{ route('searchEmployeRH') }}" method="POST" role="search">
-                {{ csrf_field() }}
-                <div class="input-group">
-                    <input type="text" class="d-flex form-control" name="q" style="width: 300px; height : 49px;  margin-top : 15px"
-                        placeholder="Rechercher des employés"> <span class="input-group-btn">
-                        <button type="submit" class="btn btn-default">
-                            <span class="nc-icon nc-zoom-split"></i></span>
-</button>
-                    </span>
-                </div>
-            </form> -->
-                
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="no-icon">{{ __('Dropdown') }}</span>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">{{ __('Action') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Another action') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Something') }}</a>
-                        <a class="dropdown-item" href="#">{{ __('Something else here') }}</a>
-                        <div class="divider"></div>
-                        <a class="dropdown-item" href="#">{{ __('Separated link') }}</a>
-                    </div>
-                </li> -->
-                @foreach ($employes as $employe)
-                @if ($employe->suspendu == "non")
-                <li class="nav-item">
-                                <a href="{{ route('suspendreEmploye', $employe->matricule) }}" class="btn btn-default">
-                                <span style="color : blue" class="far fa-pause-circle fa-2x"></i></span></a>
-                            </li>
-                            @else 
-                            <li class="nav-item">
-                                <a href="{{ route('retablirEmploye', $employe->matricule) }}" class="btn btn-default">
-                                <span style="color : green" class="far fa-play-circle fa-2x"></i></span></a>
-                            </li>
-                            @endif
+                                        </ul>
+                                        <ul class="navbar-nav   d-flex align-items-center"> 
+                                    
+                                            @foreach ($employes as $employe)
+                                            @if ($employe->suspendu == "non")
+                                            <li class="nav-item">
+                                                            <a href="{{ route('suspendreEmploye', $employe->matricule) }}" style="background-color : blue; color : white; border-color : white" class="btn btn-default">
+                                                            {{ __('Suspendre') }}</span></a>
+                                                        </li>
+                                                        @else 
+                                                        <li class="nav-item">
+                                                            <a href="{{ route('retablirEmploye', $employe->matricule) }}" style="background-color : green; color : white; border-color : white" class="btn btn-default">
+                                                            {{ __('Rétablir') }}</a>
+                                                        </li>
+                                                        @endif
 
-                            <li class="nav-item">
-                                <a href="{{ route('suppressionEmploye', $employe->matricule) }}" class="btn btn-default">
-                                <span style="color : red" class="fas fa-trash fa-2x"></i></span></a>
-                            </li>
-              
-            </ul>
-        </div>
-    </div>
-</nav>
-
-
-
+                                                        <li class="nav-item">
+                                                            <a href="{{ route('suppressionEmploye', $employe->matricule) }}" style="background-color : red; color : white; border-color : white" class="btn btn-default">
+                                                            {{ __('Supprimer') }}</a>
+                                                        </li>
+                                        
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
 
                             <!-- <p class="card-category">Here is a subtitle for this table</p> -->
                         </div>

@@ -1,7 +1,7 @@
 @extends('layouts/app', ['activePage' => 'login', 'title' => 'Gestion des salaires | Connexion'])
 
 @section('content')
-    <div class="full-page section-image" data-color="black" data-image="{{ asset('light-bootstrap/img/full-screen-image-2.jpg') }}">
+    <div class="full-page section-image" data-color="purple" data-image="{{ asset('light-bootstrap/img/login_background.jpg') }}">
         <div class="content pt-5">
             <div class="container mt-5">    
                 <div class="col-md-4 col-sm-6 ml-auto mr-auto">
@@ -38,7 +38,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <div class="form-check">
                                                 <label class="form-check-label d-flex align-items-center">
                                                     <input class="form-check-input" type="checkbox" name="remember"  id="remember">
@@ -46,20 +46,18 @@
                                                     {{ __('Se rappeler de moi') }}
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="card-footer ml-auto mr-auto">
                                     <div class="container text-center" >
                                         <button type="submit" class="btn btn-warning btn-wd">{{ __('Connexion') }}</button>
                                     </div>
-                                    <div class="d-flex justify-content-between text-center">
-                                        <a class="btn btn-link"  style="color:#23CCEF" href="{{ route('password.request') }}">
+                                    <br>
+                                    <div class=" text-center">
+                                        <a class="btn btn-link"  style="color:#Ofacd5" href="{{ route('password.request') }}">
                                         {{ __('Mot de passe oublié ?') }}
-                                        </a><br><br><br>
-                                        <!-- <a class="btn btn-link" style="color:#23CCEF" href="{{ route('register') }}">
-                                            {{ __('Créer un compte') }}
-                                        </a> -->
+                                        </a>
                                     </div>
                                     
                                     

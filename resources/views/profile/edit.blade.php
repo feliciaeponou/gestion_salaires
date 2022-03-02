@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'user', 'title' => 'Interface Employé | Modifier mon profil', 'navName' => 'Mon Profil', 'activeButton' => 'laravel'])
+@extends('layouts.app', ['activePage' => 'user', 'title' => 'Interface Employé | Modifier mon profil', 'navName' => 'Mon Profil'])
 
 @section('content')
     <div class="content">

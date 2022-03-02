@@ -12,6 +12,7 @@ class EmployeController extends Controller
     public function __construct() {
         $this->middleware('auth');
       }
+
       public function index() {
         $matricule = Auth::user()->matricule; 
 
@@ -19,4 +20,5 @@ class EmployeController extends Controller
 
         return view('employe.index', compact('seances'));
       }
+      
 }

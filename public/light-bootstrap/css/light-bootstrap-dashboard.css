@@ -302,7 +302,7 @@ input:focus {
 }
 
 .page-header .filter:after {
-    background: transparent linear-gradient(to bottom, #9368e9 0%, #943bea 100%) repeat scroll 0 0/150% 150%;
+    background: transparent linear-gradient(to bottom, #9a32fe 0%, #943bea 100%) repeat scroll 0 0/150% 150%;
     content: "";
     display: block;
     height: 100%;
@@ -590,13 +590,13 @@ body>.navbar-collapse:before {
 
 .sidebar:after,
 body>.navbar-collapse:after {
-    background: #9368E9;
-    background: -moz-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9368E9), color-stop(100%, #943bea));
-    background: -webkit-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -o-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -ms-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: linear-gradient(to bottom, #9368E9 0%, #943bea 100%);
+    background: #9a32fe;
+    background: -moz-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9a32fe), color-stop(100%, #943bea));
+    background: -webkit-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: -o-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: -ms-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: linear-gradient(to bottom, #9a32fe 0%, #943bea 100%);
     background-size: 150% 150%;
     z-index: 3;
     opacity: 1;
@@ -659,13 +659,13 @@ body>.navbar-collapse[data-color="green"]:after {
 
 .sidebar[data-color="orange"]:after,
 body>.navbar-collapse[data-color="orange"]:after {
-    background: #FFA534;
-    background: -moz-linear-gradient(top, #FFA534 0%, #ff5221 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFA534), color-stop(100%, #ff5221));
-    background: -webkit-linear-gradient(top, #FFA534 0%, #ff5221 100%);
-    background: -o-linear-gradient(top, #FFA534 0%, #ff5221 100%);
-    background: -ms-linear-gradient(top, #FFA534 0%, #ff5221 100%);
-    background: linear-gradient(to bottom, #FFA534 0%, #ff5221 100%);
+    background: #9a32fe;
+    background: -moz-linear-gradient(top, #9a32fe 0%, #ff5221 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9a32fe), color-stop(100%, #ff5221));
+    background: -webkit-linear-gradient(top, #9a32fe 0%, #ff5221 100%);
+    background: -o-linear-gradient(top, #9a32fe 0%, #ff5221 100%);
+    background: -ms-linear-gradient(top, #9a32fe 0%, #ff5221 100%);
+    background: linear-gradient(to bottom, #9a32fe 0%, #ff5221 100%);
     background-size: 150% 150%;
 }
 
@@ -683,13 +683,13 @@ body>.navbar-collapse[data-color="red"]:after {
 
 .sidebar[data-color="purple"]:after,
 body>.navbar-collapse[data-color="purple"]:after {
-    background: #9368E9;
-    background: -moz-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9368E9), color-stop(100%, #943bea));
-    background: -webkit-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -o-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -ms-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: linear-gradient(to bottom, #9368E9 0%, #943bea 100%);
+    background: #9a32fe;
+    background: -moz-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9a32fe), color-stop(100%, #943bea));
+    background: -webkit-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: -o-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: -ms-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: linear-gradient(to bottom, #9a32fe 0%, #943bea 100%);
     background-size: 150% 150%;
 }
 
@@ -1184,9 +1184,9 @@ fieldset[disabled] .btn-info.active {
 }
 
 .btn-warning {
-    border: 1px solid #FFA534;
+    border: 1px solid #9a32fe;
     color: #FFFFFF;
-    background-color: #FFA534;
+    background-color: #9a32fe;
     cursor: pointer;
 }
 
@@ -1196,8 +1196,8 @@ fieldset[disabled] .btn-info.active {
 .btn-warning.active,
 .open>.btn-warning.dropdown-toggle {
     background-color: transparent;
-    color: #ED8D00;
-    border-color: #ED8D00;
+    color: #9a32fe;
+    border-color: #9a32fe;
 }
 
 .btn-warning.disabled,
@@ -1240,7 +1240,7 @@ fieldset[disabled] .btn-warning.active {
 .btn-warning.btn-fill:active,
 .btn-warning.btn-fill.active,
 .open>.btn-warning.btn-fill.dropdown-toggle {
-    background-color: #ED8D00;
+    background-color: #9a32fe;
     color: #FFFFFF;
 }
 
@@ -3285,24 +3285,24 @@ Copyright (c) 2015 Daniel Eden
 .ct-series-c .ct-line,
 .ct-series-c .ct-bar,
 .ct-series-c .ct-slice-donut {
-    stroke: #FFA534;
+    stroke: #9a32fe;
 }
 
 .ct-series-c .ct-slice-pie,
 .ct-series-c .ct-area {
-    fill: #FFA534;
+    fill: #9a32fe;
 }
 
 .ct-series-d .ct-point,
 .ct-series-d .ct-line,
 .ct-series-d .ct-bar,
 .ct-series-d .ct-slice-donut {
-    stroke: #9368E9;
+    stroke: #9a32fe;
 }
 
 .ct-series-d .ct-slice-pie,
 .ct-series-d .ct-area {
-    fill: #9368E9;
+    fill: #9a32fe;
 }
 
 .ct-series-e .ct-point,
@@ -5533,13 +5533,13 @@ License - nucleoapp.com/license/
 }
 
 .full-page[data-color="orange"]:after {
-    background: #FFA534;
-    background: -moz-linear-gradient(top, #FFA534 0%, #ff5221 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFA534), color-stop(100%, #ff5221));
-    background: -webkit-linear-gradient(top, #FFA534 0%, #ff5221 100%);
-    background: -o-linear-gradient(top, #FFA534 0%, #ff5221 100%);
-    background: -ms-linear-gradient(top, #FFA534 0%, #ff5221 100%);
-    background: linear-gradient(to bottom, #FFA534 0%, #ff5221 100%);
+    background: #9a32fe;
+    background: -moz-linear-gradient(top, #9a32fe 0%, #ff5221 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9a32fe), color-stop(100%, #ff5221));
+    background: -webkit-linear-gradient(top, #9a32fe 0%, #ff5221 100%);
+    background: -o-linear-gradient(top, #9a32fe 0%, #ff5221 100%);
+    background: -ms-linear-gradient(top, #9a32fe 0%, #ff5221 100%);
+    background: linear-gradient(to bottom, #9a32fe 0%, #ff5221 100%);
     background-size: 150% 150%;
 }
 
@@ -5555,13 +5555,13 @@ License - nucleoapp.com/license/
 }
 
 .full-page[data-color="purple"]:after {
-    background: #9368E9;
-    background: -moz-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9368E9), color-stop(100%, #943bea));
-    background: -webkit-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -o-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: -ms-linear-gradient(top, #9368E9 0%, #943bea 100%);
-    background: linear-gradient(to bottom, #9368E9 0%, #943bea 100%);
+    background: #9a32fe;
+    background: -moz-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9a32fe), color-stop(100%, #943bea));
+    background: -webkit-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: -o-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: -ms-linear-gradient(top, #9a32fe 0%, #943bea 100%);
+    background: linear-gradient(to bottom, #9a32fe 0%, #943bea 100%);
     background-size: 150% 150%;
 }
 
