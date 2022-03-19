@@ -8,17 +8,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>{{ $title }}</title>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-        <!--     Fonts and icons     -->
-        <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" /> -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" /> -->
-        <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">
-        <!-- <link rel="stylesheet" href="{{asset('css/solid.min.css')}}"> -->
+     <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
         <!-- CSS Files -->
         <link href="{{ asset('light-bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('light-bootstrap/css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
         <!-- CSS Just for demo purpose, don't include it in your project -->
-        <!-- <link href="{{ asset('light-bootstrap/css/demo.css') }}" rel="stylesheet" /> -->
 
       <link rel="stylesheet" href="{{ asset('css/flatpicker.min.css') }}"/>
       <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}"/>
@@ -34,7 +29,6 @@
     <script src="{{ asset('js/flatpicker.min.js') }}"></script>
     <script src="{{ asset('js/fr.js') }}"></script>
     <script src="{{ asset('js/datatables.min.js') }}"></script>
-    <script src="cdn.datatables.net/plug-ins/1.11.5/i18n/fr-FR.json"></script>
     <link rel="stylesheet" href="{{asset('js/fontawesome.min.js')}}">
         <!-- <link rel="stylesheet" href="{{asset('js/solid.min.js')}}"> -->
         <link rel="stylesheet" href="{{asset('js/all.min.js')}}">
@@ -43,94 +37,38 @@
     $( function() {
 
    
-    $("#datepicker").flatpickr(
-      {
-    dateFormat: "d/m/Y",
-    minDate: "today",
-    "locale": {
-        "firstDayOfWeek": 1, // start week on Monday
-        "locale": "fr" 
-    }
-}
-    );
-
-    $("#datepickernais").flatpickr(
-      {
-    dateFormat: "d/m/Y",
-    "locale": {
-        "firstDayOfWeek": 1, // start week on Monday
-        "locale": "fr" 
-    }
-}
-    );
-    $("#date_debut_service").flatpickr(
-      {
-    dateFormat: "d/m/Y",
-    "locale": {
-        "firstDayOfWeek": 1, // start week on Monday
-        "locale": "fr" 
-    }
-}
-    );
-
+    $(".datepicker").flatpickr(
+        {
+        dateFormat: "d/m/Y",
+        // minDate: "today",
+        "locale": {
+            "firstDayOfWeek": 1, // start week on Monday
+            "locale": "fr" 
+        }
+    });
 
     $("#daterangepicker").flatpickr(
-      {
-    dateFormat: "d/m/Y",
-    maxDate: "today",
-    mode: "range",
-    "locale": {
-        "firstDayOfWeek": 1, // start week on Monday
-        "locale": "fr" 
-    }
-}
-    );
+        {
+        dateFormat: "d/m/Y",
+        maxDate: "today",
+        mode: "range",
+        "locale": {
+            "firstDayOfWeek": 1, // start week on Monday
+            "locale": "fr" 
+        }
+    });
 
 
+    $(".timepicker").flatpickr(
+        {
+        enableTime: true,
+        dateFormat: "H:i",
+        time_24hr: true,
+        minDate: "today",
+        noCalendar: true,
+    
+    });
 
-    $("#timepicker").flatpickr(
-      {
-    enableTime: true,
-    dateFormat: "H:i",
-    time_24hr: true,
-    minDate: "today",
-    noCalendar: true,
-   
-}
-    );
-
-    $("#timepicker1").flatpickr(
-      {
-    enableTime: true,
-    dateFormat: "H:i",
-    time_24hr: true,
-    minDate: "today",
-    noCalendar: true,
-   
-}
-    );
-
-    $("#timepicker2").flatpickr(
-      {
-    enableTime: true,
-    dateFormat: "H:i",
-    time_24hr: true,
-    minDate: "today",
-    noCalendar: true,
-   
-}
-    );
-
-    $("#timepicker3").flatpickr(
-      {
-    enableTime: true,
-    dateFormat: "H:i",
-    time_24hr: true,
-    minDate: "today",
-    noCalendar: true,
-   
-}
-    );
 
 
 $(document).on('change','#daterangepicker', function () {
@@ -151,9 +89,6 @@ $(document).on('change','#daterangepicker', function () {
 
   var date_debut1 = date_debut.split('/');
   var date_fin1 = date_fin.split('/');
-
-
-
   
 });
 
@@ -606,8 +541,6 @@ $('#example1').DataTable(
     } 
 );
 
-
-
   } );
 </script>      
 
@@ -642,43 +575,24 @@ $('#example1').DataTable(
 
             @endif
 
-                <!-- @include('pages/sidebarstyle') -->
-
             @endif
 
             <div class="@if (auth()->check() && request()->route()->getName() != "") main-panel @endif">
                 @include('layouts.navbars.navbar')
                 @yield('content')
-                <!-- @include('layouts.footer.nav') -->
             </div>
 
         </div>
-       
 
-        
     </body>
        
-    <!-- <script src="{{ mix('js/app.js') }}"></script> -->
-    <!-- <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script> -->
     @stack('scripts')
 
-    <!-- <script src="{{ asset('light-bootstrap/js/plugins/jquery.sharrre.js') }}"></script> -->
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <!-- <script src="{{ asset('light-bootstrap/js/plugins/bootstrap-switch.js') }}"></script> -->
-   
-    <!--  Chartist Plugin  -->
-    <!-- <script src="{{ asset('light-bootstrap/js/plugins/chartist.min.js') }}"></script> -->
-    <!--  Notifications Plugin    -->
-    <!-- <script src="{{ asset('light-bootstrap/js/plugins/bootstrap-notify.js') }}"></script> -->
-    <!-- Control Center for Light Bootstrap Dashboard: scripts for the example pages etc -->
     <script src="{{ asset('light-bootstrap/js/light-bootstrap-dashboard.js?v=2.0.0') }}" type="text/javascript"></script>
-    <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
     <script src="{{ asset('light-bootstrap/js/demo.js') }}"></script>
-    
     
     @stack('js')
     <script>
     
-
     </script>
 </html>

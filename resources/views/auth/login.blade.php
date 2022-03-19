@@ -1,7 +1,7 @@
 @extends('layouts/app', ['activePage' => 'login', 'title' => 'Gestion des salaires | Connexion'])
 
 @section('content')
-    <div class="full-page section-image" data-color="purple" data-image="{{ asset('light-bootstrap/img/login_background.jpg') }}">
+    <div class="full-page section-image" data-color="purple" >
         <div class="content pt-5">
             <div class="container mt-5">    
                 <div class="col-md-4 col-sm-6 ml-auto mr-auto">

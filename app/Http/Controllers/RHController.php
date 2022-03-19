@@ -14,6 +14,7 @@ class RHController extends Controller
     public function __construct() {
         $this->middleware('auth');
       }
+
       public function index() {
         // $employes = DB::table('users')->where('role', 'employe')->get();
         $employes = Employe::all();
@@ -35,6 +36,7 @@ class RHController extends Controller
         return view('rh.detailsEmploye', compact('employes'));
         
       }
+
       public function nouvelEmploye()
       {
         return view('rh.nouvelEmploye');
@@ -43,50 +45,62 @@ class RHController extends Controller
       public function enregistrerEmploye(Request $request)
       {
             $request->validate([
-              // 'matricule' => ['required', 'string', 'max:255'],
                 'nom_prenoms' => ['required', 'string', 'max:255'],
                 'date_naissance' => ['required', 'string', 'max:255'],
                 'genre' => ['required', 'string', 'max:255'],
                 'service' => ['required', 'string', 'max:255'],
                 'categorie' => ['required', 'string', 'max:255'],
-                'salaire_par_heure' => ['required', 'string', 'max:255'],
-                'date_debut_service' => ['required', 'string', 'max:255'],
-                'volume_horaire' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'max:255'],
+                'intitule_poste' => ['required', 'string', 'max:255'],
+                'salaire_base' => ['required', 'string', 'max:255'],
+                'sursalaire' => ['required', 'string', 'max:255'],
+                'prime_transport' => ['required', 'string', 'max:255'],
+                'numero_cnps' => ['required', 'string', 'max:255'],
+                'date_embauche' => ['required', 'string', 'max:255'],
+                'date_entree' => ['required', 'string', 'max:255'],
+                'email' => ['required','unique:employes', 'string', 'max:255'],
                 'password' => ['required', 'string', 'max:255'],
             ]);
 
             $matricule = mt_rand(1000,9999);
 
-          
+            while (Employe::where('matricule', '=', $matricule)->exists()) {
+              // user found
 
-          $employe = Employe::create([
-              'matricule' => $matricule,
-              'nom_prenoms' => $request->nom_prenoms,
-              'date_naissance' => $request->date_naissance,
-              'genre' => $request->genre,
-              'service' => $request->service,
-              'categorie' => $request->categorie,
-              'salaire_par_heure' => $request->salaire_par_heure,
-              'date_debut_service' => $request->date_debut_service,
-              'volume_horaire' => $request->volume_horaire,
-              'email' => $request->email,
-              'password' => Hash::make($request->password) ,
-              'suspendu' => 'non' 
-          ]);
-          
-          $user = User::create([
-            'name' => $request->nom_prenoms,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => 'employe',
-            'matricule' => $matricule,
+              $matricule = mt_rand(1000,9999);
 
-            
-        ]);
+            } 
+             
 
-        $employes = Employe::all();
-        return view('rh.index', compact('employes'))->with('toast_success', 'Nouvel employé ajouté');
+                $employe = Employe::create([
+                    'matricule' => $matricule,
+                    'nom_prenoms' => $request->nom_prenoms,
+                    'date_naissance' => $request->date_naissance,
+                    'genre' => $request->genre,
+                    'service' => $request->service,
+                    'categorie' => $request->categorie,
+                    'intitule_poste' => $request->intitule_poste,
+                    'salaire_base' => $request->salaire_base,
+                    'sursalaire' => $request->sursalaire,
+                    'prime_transport' => $request->prime_transport,
+                    'numero_cnps' => $request->numero_cnps,
+                    'date_embauche' => $request->date_embauche,
+                    'date_entree' => $request->date_entree,
+                    'email' => $request->email,
+                    'password' => Hash::make($request->password) ,
+                    'suspendu' => 'non' 
+                ]);
+
+                
+                $user = User::create([
+                  'name' => $request->nom_prenoms,
+                  'email' => $request->email,
+                  'password' => Hash::make($request->password),
+                  'role' => 'employe',
+                  'matricule' => $matricule,
+                ]);
+
+              $employes = Employe::all();
+              return view('rh.index', compact('employes'))->with('toast_success', 'Nouvel employé ajouté');
         
       }
 

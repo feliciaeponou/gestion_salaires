@@ -13,9 +13,20 @@
 
                         <div class="card-body">
 
+                        @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+
                         <form method="post" action="{{ route('enregistrerEmploye') }}" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
+                                
                                 @method('patch')
                                 
                                 @include('sweetalert::alert')
@@ -23,39 +34,31 @@
         
                                 <div class="pl-lg-4">
 
-                                <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
                                             {{ __('Nom et prénoms') }}
                                         </label>
-                                        <input type="text" class="form-control " name="nom_prenoms"  > 
+                                        <input type="text" class="form-control" name="nom_prenoms"  > 
                                     </div>
-
-                              
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name" >
                                             {{ __('Date de naissance') }}
                                         </label>
-                                        <input type="text" class="form-control" id="datepickernais" name="date_naissance" > 
+                                        <input type="text" class="form-control datepicker" id="datepickernais" name="date_naissance" > 
                                         
                                     </div>
 
-                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}" >
-                                        <label class="form-control-label" for="input-name" >
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name">
                                             {{ __('Genre') }}
-                                        </label> <br>
-                                       
-
-                                        <div class="form-check form-check-inline"  style="margin-left : 20px">
-                                        <input class="form-check-input" type="radio" name="genre" id="inlineRadio1" value="homme" checked> <label  for="inlineRadio1">HOMME</label><br>
-                                        <input class="form-check-input" type="radio" name="genre" id="inlineRadio2" value="femme"> <label  for="inlineRadio1">FEMME</label>
-                                           
-                                            <!-- <label class="form-check-label" for="inlineRadio1">HOMME</label> -->
-                                        </div> 
-                                        <!-- <div class="form-check  form-check-inline"  style="margin-left : 20px">
-                                           
-                                            <label class="form-check-label" for="inlineRadio2">FEMME </label>
-                                        </div> -->
+                                        </label>
+                                        
+                                        <select name="genre" id="" class="form-control">
+                                            <option value="">--</option>
+                                            <option value="Homme">Homme</option>
+                                            <option value="Femme">Femme</option>
+                                        </select>
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
@@ -73,33 +76,59 @@
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-name" >
-                                            {{ __('Date de debut de fonctions') }}
+                                        <label class="form-control-label" for="input-name">
+                                            {{ __('Intitulé du poste ') }}
                                         </label>
-                                        <input type="text" class="form-control" id="date_debut_service" name="date_debut_service" > 
+                                        <input type="text" class="form-control" name="intitule_poste"> 
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name" >
+                                            {{ __('Date d\'entrée ') }}
+                                        </label>
+                                        <input type="text" class="form-control datepicker" id="date_entree" name="date_entree" > 
+                                        
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name" >
+                                            {{ __('Date d\'embauche ') }}
+                                        </label>
+                                        <input type="text" class="form-control datepicker" id="date_embauche" name="date_embauche" > 
                                         
                                     </div>
 
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
-                                            {{ __('Salaire par heure') }}
+                                            {{ __('Salaire de base par mois') }}
                                         </label>
                                         
-                                        <select name="salaire_par_heure" id="" class="form-control">
-                                            <option value="">--</option>
-                                            <option value="5000">5000</option>
-                                            <option value="8000">8000</option>
-                                            <option value="15000">15000</option>
-                                        </select>
+                                        <input type="number" class="form-control" name="salaire_base"> 
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name">
+                                            {{ __('Sursalaire par heure') }}
+                                        </label>
+                                        
+                                        <input type="number" class="form-control" name="sursalaire">
+                                    </div>
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name">
+                                            {{ __('Prime de transport') }}
+                                        </label>
+                                        
+                                        <input type="number" class="form-control" name="prime_transport">
                                     </div>
 
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name" >
-                                            {{ __('Volume horaire') }}
+                                            {{ __('Numéro CNPS') }}
                                         </label>
-                                        <input type="number" class="form-control" name="volume_horaire" > 
+                                        <input type="number" class="form-control" name="numero_cnps" > 
                                         
                                     </div>
 
@@ -118,14 +147,14 @@
                                         <input type="text" class="form-control" name="password" > 
                                         
                                     </div>
+
+                                   
                                     
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-default mt-4">{{ __('Enregistrer') }}</button>
+                                        <input type="submit" value="{{ __('Enregistrer') }}" class="btn btn-warning mt-4 btn-lg " />
                                     </div>
                                 </div>
                             </form>
-
-
 
 
                         </div>

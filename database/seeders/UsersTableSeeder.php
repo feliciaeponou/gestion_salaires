@@ -8,7 +8,6 @@ use App\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
-
     
     /**
      * Run the database seeds.

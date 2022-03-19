@@ -22,18 +22,13 @@
 
                                     foreach($details as $pointages)
                                     foreach($employes as $employe)
-
                                     
                                         $volumeHoraireTotal = $volumeHoraireTotal + $pointages->volumeHoraire;
-
                                         
-
-                                        $salaireTotal = $employe->salaire_par_heure * $volumeHoraireTotal;
+                                        $salaireTotal = $employe->sursalaire * $volumeHoraireTotal;
 
                                         @endphp
                                         
-
-
                                     <form method="post" action="{{ route('enregistrerDemandePaiement') }}" autocomplete="off"
                 enctype="multipart/form-data">
                 @csrf
@@ -64,7 +59,6 @@
                         <input type="text" class="form-control" readonly name="periode" value="{{ $periodes }}"> 
                     </div>
 
-
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
                                             {{ __('Nombre de séances') }}
@@ -83,10 +77,26 @@
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
                                         <label class="form-control-label" for="input-name">
-                                            {{ __('Coût Total') }}
+                                            {{ __('Salaire de base ') }}
+                                        </label>
+                                        <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
+                                        <input type="text" class="form-control" readonly name="salaire_base" value=" {{$employe -> salaire_base}}" > 
+                                    </div>   
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name">
+                                            {{ __('Sursalaire Total') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
                                         <input type="text" class="form-control" readonly name="coutTotal" value=" {{ $salaireTotal  }}" > 
+                                    </div>   
+
+                                    <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-name">
+                                            {{ __('Prime de transport ') }}
+                                        </label>
+                                        <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
+                                        <input type="text" class="form-control" readonly name="prime_transport" value=" {{$employe -> prime_transport}}" > 
                                     </div>   
 
                                    <input type="hidden" name="employe_id" value="{{$employe -> id}}">
@@ -142,7 +152,7 @@
                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
                         <input type="text" class="form-control" id="daterangepicker" name="periode" > 
                     </div>
-                    <input type="hidden" name="salaire_par_heure" value="{{$employe -> salaire_par_heure}}">
+                    <input type="hidden" name="sursalaire" value="{{$employe -> sursalaire}}">
                     <div class="text-center">
                         <button type="submit" name="verifier" class="btn btn-default mt-4">{{ __('Vérifier') }}</button>
                     </div>
@@ -195,7 +205,7 @@
                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
                         <input type="text" class="form-control" id="daterangepicker" name="periode" > 
                     </div>
-                    <input type="hidden" name="salaire_par_heure" value="{{$employe -> salaire_par_heure}}">
+                    <input type="hidden" name="sursalaire" value="{{$employe -> sursalaire}}">
                     <div class="text-center">
                         <button type="submit" class="btn btn-default mt-4">{{ __('Vérifier') }}</button>
                     </div>

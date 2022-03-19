@@ -21,9 +21,13 @@ class CreateEmployesTable extends Migration
             $table->string('genre');
             $table->string('service');
             $table->string('categorie');
-            $table->string('salaire_par_heure');
-            $table->string('date_debut_service');
-            $table->string('volume_horaire');
+            $table->string('intitule_poste');
+            $table->string('salaire_base');
+            $table->string('sursalaire');
+            $table->string('prime_transport');
+            $table->string('numero_cnps');
+            $table->string('date_embauche');
+            $table->string('date_entree');
             $table->string('photo')->nullable();
             $table->string('email')->unique();
             $table->string('password');

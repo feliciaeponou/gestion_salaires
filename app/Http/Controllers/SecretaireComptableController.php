@@ -68,6 +68,7 @@ class SecretaireComptableController extends Controller
     
             $dateDebut = $periodeExploded[0];
             $dateFin = $periodeExploded[2];
+            echo $dateDebut;
 
           $user = DemandePaiement::create([
             'matricule' => $request->matricule,
@@ -82,9 +83,6 @@ class SecretaireComptableController extends Controller
               'paye' => 'non',
 
           ]);
-
-         
-
 
           DB::table('pointages')->whereBetween('dateSeance',array($dateDebut,$dateFin))->where('matricule', ''.$request->matricule.'')->update(['payee'=>'oui']);
 

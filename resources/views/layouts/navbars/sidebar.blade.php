@@ -21,7 +21,7 @@ Tip 2: you can also add an image using data-image tag
             <!-- <li class="nav-item @if($activePage == 'profile') active @endif">
                 <a class="nav-link" href="{{route('admin_dashboard')}}">
                      <i class="nc-icon nc-chart-pie-35"></i>
-                    <p>{{ __("Mon profil") }}</p>
+                    <p>{{ __("Paramètres") }}</p>
                 </a>
             </li> -->
            

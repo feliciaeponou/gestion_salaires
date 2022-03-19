@@ -16,14 +16,19 @@ class Employe extends Model
              'genre', 
              'service', 
              'categorie', 
-             'salaire_par_heure', 
-             'date_debut_service', 
-             'volume_horaire', 
+             'intitule_poste',
+             'salaire_base',
+             'sursalaire', 
+             'prime_transport',
+             'numero_cnps',
+             'date_entree',
+             'date_embauche', 
             //  'photo', 
              'email', 
              'password', 
              'suspendu'
     ];
+
 
 
     public function pointages()

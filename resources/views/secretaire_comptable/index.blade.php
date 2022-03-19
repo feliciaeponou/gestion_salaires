@@ -85,7 +85,7 @@
                                 <tr>
                                         <td>{{ $employe->matricule }}</td>
                                         <td>{{ $employe->nom_prenoms }}</td>
-                                        <td>{{ $employe->salaire_par_heure }}</td>
+                                        <td>{{ $employe->salaire_base }}</td>
                                         <td>{{ $employe->volume_horaire }}</td>
                                         <td>
                         <a href="{{ route('nouvelleDemandePaiement', $employe->matricule) }}" class="btn btn-default">

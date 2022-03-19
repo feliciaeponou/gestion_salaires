@@ -11,7 +11,8 @@ class DemandePaiement extends Model
 
     protected $fillable = [
         'matricule',
-         'periode',
+         'dateDebut',
+         'dateFin',
              'nbSeances', 
              'volumeHoraireTotal', 
              'coutTotal',

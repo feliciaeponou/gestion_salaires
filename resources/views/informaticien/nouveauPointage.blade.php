@@ -49,7 +49,7 @@
                                             {{ __('Date de la séance') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control" id="datepicker" name="dateSeance" > 
+                                        <input type="text" class="form-control datepicker" id="datepicker" name="dateSeance" > 
                                         
                                     </div>
 
@@ -59,7 +59,7 @@
                                             {{ __('Debut de la Seance') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control " id="timepicker" name="debutSeance"> 
+                                        <input type="text" class="form-control timepicker" id="timepicker" name="debutSeance"> 
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
@@ -67,7 +67,7 @@
                                             {{ __('Debut de la Pause') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control" id="timepicker1" name="debutPause"> 
+                                        <input type="text" class="form-control timepicker" id="timepicker1" name="debutPause"> 
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
@@ -75,7 +75,7 @@
                                             {{ __('Fin de la Pause') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control" id="timepicker2" name="finPause"> 
+                                        <input type="text" class="form-control timepicker" id="timepicker2" name="finPause"> 
                                     </div>
 
                                     <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
@@ -83,7 +83,7 @@
                                             {{ __('Fin de la Seance') }}
                                         </label>
                                         <!-- <input type="text" name="name" id="input-name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" value="{{ old('name', auth()->user()->name) }}" required autofocus> -->
-                                        <input type="text" class="form-control " id="timepicker3" name="finSeance"> 
+                                        <input type="text" class="form-control timepicker" id="timepicker3" name="finSeance"> 
                                     </div>
 
                                    <input type="hidden" name="employe_id" value="{{$employe -> id}}">
