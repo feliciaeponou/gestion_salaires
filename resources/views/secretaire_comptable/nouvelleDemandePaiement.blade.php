@@ -13,17 +13,27 @@
 
                         <div class="card-body">
 
-
-
+                                <!-- On recueille toutes les séances de l'employés  -->
                                     @if(isset($details))
 
                                     @php $volumeHoraireTotal = 0;
+
+                                    <!-- On compte les séances de l'employé   --> 
+
                                     $nbSeances = count($details);
 
+                                        
                                     foreach($details as $pointages)
+
+                                    <!-- On recupère les informaations de l'employé -->
+
                                     foreach($employes as $employe)
+
+                                        <!-- POur chaque employé on recupère le volume horaire total -->
                                     
                                         $volumeHoraireTotal = $volumeHoraireTotal + $pointages->volumeHoraire;
+
+                                        <!-- On calcule le salaire en fonction du volume horaire total  -->
                                         
                                         $salaireTotal = $employe->sursalaire * $volumeHoraireTotal;
 

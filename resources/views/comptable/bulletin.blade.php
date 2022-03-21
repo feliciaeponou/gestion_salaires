@@ -68,11 +68,10 @@
                                             <td>1 200 000</td>
                                             <td></td>
                                         </tr>
-                                        
-
                                       
                                         <tr>
                                             <td></td>
+
                                             <td>Total imposable</td>
                                             <td></td>
                                             <td></td>
@@ -80,21 +79,70 @@
                                             <td>1 500 000</td>
                                             <td></td>
                                         </tr>
-                                        @foreach ($datas as $data)
-                                            <tr>
-                                                <td>{{ $data->dateSeance }}</td>
-                                                <td>{{ $data->debutSeance }}</td>
-                                                <td>{{ $data->debutPause }}</td>
-                                                <td>{{ $data->finPause }}</td>
-                                                <td>{{ $data->finSeance }}</td>
-                                                <td>{{ $data->volumeHoraire }}</td>
-                                                <td>{{ $data->volumeHoraire * $data->sursalaire }} Fr </td>
-                                            </tr>
-                                        @endforeach
+
+                                        <tr>
+                                            <td>410</td>
+                                            <td>CN</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>3700</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>420</td>
+                                            <td>IGR</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>18262</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>430</td>
+                                            <td>ITS</td>
+                                            <td></td>
+                                            <td>180000</td>
+                                            <td>1,5</td>
+                                            <td></td>
+                                            <td>2700</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>440</td>
+                                            <td>CNPS</td>
+                                            <td></td>
+                                            <td>1500000</td>
+                                            <td>1,50</td>
+                                            <td></td>
+                                            <td>22500</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>Total des cotisations</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>47162</td>
+                                        </tr>
+                                        <tr>
+                                            <td>715</td>
+                                            <td>Prime de transport </td>
+                                            <td>30</td>
+                                            <td>100000</td>
+                                            <td></td>
+                                            <td>100000</td>
+                                            <td></td>
+                                        </tr>
+
+
 
                                         <tr>
                                             <td colspan="6">NET A PAYER</td>
-                                            <td>{{ $data->volumeHoraire * $data->sursalaire * $data->nbSeances  }} Fr</td>
+                                            <td>1 552 838 Fr</td>
 
                                         </tr>
 
