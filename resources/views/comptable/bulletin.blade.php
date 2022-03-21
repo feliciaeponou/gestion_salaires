@@ -142,7 +142,7 @@
 
                                         <tr>
                                             <td colspan="6">NET A PAYER</td>
-                                            <td>1 552 838 Fr</td>
+                                            <td>1 552 838 </td>
 
                                         </tr>
 
